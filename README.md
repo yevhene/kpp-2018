@@ -43,7 +43,7 @@ Git (init, commit, reset, merge, rebase).
 ### Тиждень 4: Web
 
 #### Лекція 4.1: Протоколи та стандарти Web
-WWW. URL. HTTP (methods, headers).
+WWW, URL. HTTP (methods, headers).
 
 #### Лекція 4.2: express.js
 Роутинг. Шаблонізатори.
