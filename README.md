@@ -28,3 +28,4 @@
 
 ## Література
 - [You Don't Know JS (Kyle Simpson) (en.)](https://github.com/getify/You-Dont-Know-JS)
+- [Node.js 8 the Right Way (Jim R. Wilson) (en.)](https://pragprog.com/book/jwnode2/node-js-8-the-right-way)

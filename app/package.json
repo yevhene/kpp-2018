@@ -9,8 +9,10 @@
     "start": "node app"
   },
   "dependencies": {
-    "glob": "^7.1.2",
+    "ejs": "^2.5.7",
     "express": "~4.14.0",
+    "github-markdown-css": "^2.10.0",
+    "glob": "^7.1.2",
     "marked": "^0.3.6",
     "slides": "./slides"
   },

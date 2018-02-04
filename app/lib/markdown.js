@@ -17,7 +17,7 @@ module.exports.routes = function(app, baseRoute, dir) {
 function render(res, file) {
   fs.readFile(file, 'utf8', (_, content) => {
     const html = marked(content);
-    res.send(html);
+    res.render('page', { content: html });
   });
 }
 

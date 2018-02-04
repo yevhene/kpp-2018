@@ -4,6 +4,14 @@ const express = require('express');
 const markdown = require('./lib/markdown');
 
 const app = express();
+
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
+app.use('/assets', express.static(
+  path.join(__dirname, '../node_modules/github-markdown-css')
+));
+
 app.use('/slides', require('../slides/app'));
 
 markdown.routes(app, '/', path.join(__dirname, '../'));
