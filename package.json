@@ -1,0 +1,15 @@
+{
+  "name": "kpp-2018",
+  "version": "1.0.0",
+  "description": "KPP 2018",
+  "main": "app.js",
+  "repository": "git@github.com:yevhene/kpp-2018.git",
+  "author": "Yevhen Shemet <yevhene@vntu.edu.ua>",
+  "scripts": {
+    "start": "node app/app"
+  },
+  "dependencies": {
+    "app": "./app"
+  },
+  "license": "MIT"
+}
