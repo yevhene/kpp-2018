@@ -2,3 +2,481 @@
   <h1>Основи JavaScript</h1>
   <h2>Лекція 1.1</h2>
 </section>
+
+<section>
+  <h2>Крос-платформне програмування</h2>
+
+  <section>
+    <h3>Це написання коду що може бути виконаний на різних платформах.</h3>
+  </section>
+
+  <section>
+    <h3>JavaScript - використовується на:</h3>
+
+    <ul>
+      <li>Shell</li>
+      <li>Browser</li>
+      <li>Server</li>
+      <li>Desktop</li>
+      <li>Mobile</li>
+      <li>Embed</li>
+      <li>...</li>
+  </section>
+</section>
+
+<section>
+  <h2>Дані</h2>
+
+  <section>
+    <h3>Число (number)</h3>
+
+    <p>Цілі та дробові числа представлені одним типом. (Але інтерпретатор їх оброблює окремо).</p>
+
+    <i>Приклад: `42`, `123.12`</i>
+  </section>
+
+  <section>
+    <h3>Строка (string)</h3>
+
+    <p>Набір символів, що обмежується одинарними або подвійними лапками. Оскільки подвійні лапки зазвичай використовуються в HTML, заохочується використання одинарних.</p>
+
+    <i>Приклад: `'Hello1'`, `"Word!"`</i>
+  </section>
+
+  <section>
+    <h3>Логічні (boolean)</h3>
+
+    <p>Результати логічних операцій.</p>
+
+    <i>Можуть мати всього два значення: `true` або `false`</i>
+  </section>
+</section>
+
+<section>
+  <h2>Оператори</h2>
+
+  <section>
+    <h3>Математичні</h3>
+
+    <ul>
+      <li><b>+</b> - Додавання</li>
+      <li><b>-</b> - Віднімання</li>
+      <li><b>*</b> - Множення</li>
+      <li><b>/</b> - Ділення</li>
+      <li><b>%</b> - Залишок від ділення</li>
+      <li><b>**</b> - Ступінь</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Побітові</h3>
+
+    <ul>
+      <li><b>&amp;</b> - Побітове І (And)</li>
+      <li><b>|</b> - Побітове Або (Or)</li>
+      <li><b>^</b> - Побітове виключне Або (Xor)</li>
+      <li><b>~</b> - Доповнення</li>
+      <li><b>&lt;&lt;</b> - Зсув вліво</li>
+      <li><b>&gt;&gt;</b> - Зсув вправо</li>
+      <li><b>&gt;&gt;&gt;</b> - Циклічний зсув вправо</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Присвоєння</h3>
+
+    <ul>
+      <li><b>=</b> - Присвоєння</li>
+      <li><b>+=, -=, /=, *=, %=, **=, &lt;&lt;=, &gt;&gt;=, &gt;&gt;&gt;=, &amp;=, |=, ^=</b> - Присвоєння з операцією (Операція виконується між попереднім значенням змінної та операндом)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Інкремент/декремент</h3>
+
+    <ul>
+      <li><b>++</b> - Інкремент (збільшує змінну на одиницю)</li>
+      <li><b>--</b> - Декремент (зменшує змінну на одиницю)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Порівняння</h3>
+
+    <ul>
+      <li><b>&lt;</b> - Менше</li>
+      <li><b>&gt;</b> - Більше</li>
+      <li><b>&tl;=</b> - Менше або дорівнює</li>
+      <li><b>&gt;=</b> - Більше або дорівнює</li>
+      <li><b>==</b> - Дорівнює</li>
+      <li><b>!=</b> - Не дорівнює</li>
+      <li><b>===</b> - Дорівнює без приведення типів</li>
+      <li><b>!==</b> - Не дорівнює без приведення типів</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Логічні</h3>
+
+    <ul>
+      <li><b>&amp;&amp;</b> - Логічне І (And). Права частина не вираховується, якщо ліва `false`</li>
+      <li><b>||</b> - Логічне Або (Or). Права частина не вираховується, якщо ліва `true`</li>
+      <li><b>!</b> - Логічне Не (Not)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Унарні</h3>
+
+    <ul>
+      <li><b>-</b> - Мінус</li>
+      <li><b>delete</b> - Видалити ключ з об'єкта</li>
+      <li><b>typeof</b> - Визначити тип данних</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Відносні</h3>
+
+    <ul>
+      <li><b>in</b> - Визначити чи права частина містить ліву. Наприклад в масиві.</li>
+    </ul>
+  </section>
+</section>
+
+<section>
+  <h2>Вирази (expressions)</h2>
+
+  <section>
+    <p>Набір даних та операторів що повертає значення (обраховується та підставляє на своє місце).</p>
+
+    <i>Приклад: 3 + 4 * 5</i>
+  </section>
+</section>
+
+<section>
+  <h2>Приорітет операторів</h2>
+
+  <section>
+    <h3>Високий</h3>
+
+    <ul>
+      <li><b>Членство</b> - `.`, `[]`</li>
+      <li><b>Виклик / ствоення</b> - `()`, `new`</li>
+      <li><b>Заперечення / інкремент</b> - `!`, `~`, `-`, `+`, `++`, `--`, `typeof`, `void`, `delete`</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Нормальний</h3>
+
+    <ul>
+      <li><b>Множення - ділення</b> - `*`, `/`, `%`</li>
+      <li><b>Додавання - віднімання</b> - `+`, `-`</li>
+      <li><b>Побітовий зсув</b> - `&lt;&lt;`, `&gt;&gt;`, `&gt;&gt;&gt;`</li>
+      <li><b>Відносні</b> - `&lt;`, `&lt;=`, `&gt;`, `&gt;=`, `in`, `instanceof`</li>
+      <li><b>Порівняння</b> - `==`, `!=`, `===`, `!==`</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Низький</h3>
+
+    <ul>
+      <li><b>Побітове І</b> - `&amp;`</li>
+      <li><b>Побітове Виключне Або</b> - `^`</li>
+      <li><b>Побітове Або</b> - `|`</li>
+      <li><b>Логічне І</b> - `&amp;&amp;`</li>
+      <li><b>Логічне Але</b> - `||`</li>
+      <li><b>Умовні</b> - `?:`</li>
+      <li><b>Присвоєння</b> - `=`, `+=`, `-=`, `*=`, `/=`, `%=`, `&lt;&lt;=`, `&gt;&gt;=`, `&gt;&gt;&gt;=`, `&amp;=`, `^=`, `|=`</li>
+      <li><b>Кома</b> - `,`</li>
+    </ul>
+  </section>
+
+  <section>
+    <pre><code class="hljs" data-trim contenteditable>
+1 + 2 * 3 &amp;&amp; 4++
+    </code></pre>
+
+    <i>обраховується, як</i>
+
+    <pre><code class="hljs" data-trim contenteditable>
+(1 + (2 * 3)) &amp;&amp; (4++)
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Дужки</h3>
+  </section>
+</section>
+
+<section>
+  <h2>Інструкції (statement)</h2>
+
+  <section>
+    <p>Один або декілька виразів, що закінчується на `;`.</p>
+    <p><i>`;` можна опускати але це може іноді призводити до неочікуванних наслідків</i></p>
+  </section>
+</section>
+
+<section>
+  <h2>Змінні</h2>
+
+  <section>
+    <p>Ім'я для місця в пам'яті. Позначається `var`.</p>
+
+    <pre><code class="hljs" data-trim contenteditable>
+var a = 4;
+    </code></pre>
+
+    <p>Тип даних що міститься в змінній може змінюватись.</p>
+  </section>
+</section>
+
+<section>
+  <h2>Пусті типи даних</h2>
+
+  <section>
+    <p>Застосовуються для того щоб позначити відсутність даних.</p>
+
+    <ul>
+      <li><b>null</b> - Нуль. Якщо значення визначене але пусте</li>
+      <li><b>undefined</b> - Якщо значення не визначене</li>
+    </ul>
+
+    <pre><code class="hljs" data-trim contenteditable>
+var student = null;
+var studentMark = undefined;
+    </code></pre>
+  </section>
+</section>
+
+<section>
+  <h2>Коментарі</h2>
+
+  <section>
+    <p>Пояснення до коду або код що відмічений, як той що не має виконуватись.</p>
+
+    <ul>
+      <li><b>//</b> - Одностроковий коментар. Все що після позначки `//` не виконується</li>
+      <li><b>/* ... */</b> - Багатостроковий коментар. Все що між `/*` і `*/` не виконується</li>
+    </ul>
+
+    <pre><code class="hljs" data-trim contenteditable>
+// Це коментар
+
+/*
+ * А це
+ *   багатостроковий
+ * коментар
+ */
+    </code></pre>
+  </section>
+</section>
+
+<section>
+  <h2>Масиви</h2>
+
+  <section>
+    <p>Упорядкований, пронумерований набір елементів. Елементи нумеруються починаючи з 0. Для доступу до елемента використувується оператор `[]`.</p>
+
+    <pre><code class="hljs" data-trim contenteditable>
+var items = [3, true, 'Василь'];
+
+items[2] //=&gt; 'Василь'
+    </code></pre>
+  </section>
+</section>
+
+<section>
+  <h2>Приведення типів</h2>
+
+  <section>
+    <h3>Type coercion</h3>
+
+    <p>Перетворення одно типу в інший.</p>
+  </section>
+
+  <section>
+    <h3>Явне (explicit)</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+var str = '5';
+Number(str);
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Неявне (implicit)</h3>
+
+    <p>Виконується під час застосування бінарних операторів (операторів для двух аргументів). Окрім `===` і `!==`.</p>
+
+    <pre><code class="hljs" data-trim contenteditable>
+'2' + '1' //=&gt; '21'
+'2' - '1' //=&gt; 3
+
+('1' + 2) + 3 //=&gt; '123'
+'1' + (2 + 3) //=&gt; '15'
+
+[1] + 2 //=&gt; '12'
+    </code></pre>
+  </section>
+</section>
+
+<section>
+  <h2>Об'єкти</h2>
+
+  <section>
+    <p>Набір пар ключ - значення.</p>
+
+    <pre><code class="hljs" data-trim contenteditable>
+var student = {
+  name: 'Василь',
+  group: 'КН'
+};
+
+items['name'] //=&gt; 'Василь'
+items.group //=&gt; 'КН'
+items.group = 'ПІ' //=&gt; 'ПІ'
+    </code></pre>
+  </section>
+</section>
+
+<section>
+  <h2>Умови</h2>
+
+  <section>
+    <p>Дозволяють виконувати чи не код в залежності від певної умови.</p>
+  </section>
+
+  <section>
+    <h3>if...else</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+var x = 0;
+var i = 0;
+
+if (x &gt; 0) {
+  i++;
+} else {
+  i--;
+}
+
+i; //=&gt; -1
+    </code></pre>
+  </section>
+</section>
+
+<section>
+  <h2>Цикли</h2>
+
+  <section>
+    <p>Дозволяють виконувати інструкції певну кількість разів. Одине виконання називається - ітерація.</p>
+  </section>
+
+  <section>
+    <h3>while</h3>
+
+    <p>Виконує блок коду доки умова правдива. Якщо умова одразу неправдива, не виконується жодного разу.</p>
+
+    <pre><code class="hljs" data-trim contenteditable>
+var i = 0;
+
+while (i &lt; 5) {
+  i++;
+}
+
+i; //=&gt; 5
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>do..while</h3>
+
+    <p>Аналогічний до циклу `while` але завжди виконується, як мінімум один раз, навіть якщо умова одразу неправдива.</p>
+
+    <pre><code class="hljs" data-trim contenteditable>
+var i = 0;
+
+do {
+  i++;
+} while(i &lt; 0);
+
+i; //=&gt; 1
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>for</h3>
+
+    <p>Скорочений запис циклу що виконується конкретну кількість разів. Складається з трьох частин `for (ініціалізація; умова; зміна)`.</p>
+
+    <pre><code class="hljs" data-trim contenteditable>
+for (var i = 0; i &lt; 5; i++) {
+  // ...код...
+}
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Контроль виконання</h3>
+
+    <ul>
+      <li><b>break</b> - закінчує виконная циклу</li>
+      <li><b>continue</b> - зікінчує виконання поточної ітераціїї, та однару переходить до наступної, якщо умова правдива</li>
+    </ul>
+  </section>
+</section>
+
+<section>
+  <h2>Функції</h2>
+
+  <section>
+    <p>Об'єднані частини коду</p>
+
+    <pre><code class="hljs" data-trim contenteditable>
+function hello() {
+  console.log('Привіт!')
+}
+
+hello();
+//&gt; Привіт!
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Параметри та аргументи функції</h3>
+
+    <ul>
+      <li><b>Параметри</b> - спеціальні змінні через які, у функцію передаються значення</li>
+      <li><b>Аргументи</b> - конкретні значення що передаються під час виклику</li>
+    </ul>
+
+    <pre><code class="hljs" data-trim contenteditable>
+function helloStudent(name, group) {
+  var greeting = 'Привіт ' + name + ' з ' + group + '!';
+  console.log(greeting);
+}
+
+var studentName = 'Василь';
+
+helloStudent(studentName, '2-КН');
+//> Привіт Василь з 2-КН!
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Значення що повертається</h3>
+
+    <p>Значення що підставляється у місце виклику функції.</p>
+
+    <pre><code class="hljs" data-trim contenteditable>
+function add(a, b) {
+  return a + b;
+}
+
+add(3, 4); //=> 5
+    </code></pre>
+  </section>
+</section>
