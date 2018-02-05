@@ -17,6 +17,7 @@ app.use('/slides', require('../slides/app'));
 markdown.routes(app, '/', path.join(__dirname, '../'));
 markdown.routes(app, '/labs', path.join(__dirname, '../labs'));
 markdown.routes(app, '/lectures', path.join(__dirname, '../lectures'));
+markdown.routes(app, '/seminars', path.join(__dirname, '../seminars'));
 
 const port = process.env.PORT || 3000;
 
