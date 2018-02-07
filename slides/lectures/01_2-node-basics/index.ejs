@@ -128,10 +128,12 @@ var server = http.createServer(function(req, res) {
 server.listen(3000);
     </code></pre>
   </section>
+</section>
+
+<section>
+  <h2>Власний модуль</h2>
 
   <section>
-    <h3>Власний модуль</h3>
-
     <pre><code class="hljs" data-trim contenteditable>
 module.exports = function(a, b) {
   return a * b;
@@ -141,7 +143,7 @@ module.exports = function(a, b) {
     <pre><code class="hljs" data-trim contenteditable>
 var mul = require('./mul');
 
-console.log(add(2, 4)); //=&gt; 8
+console.log(add(2, 4)); //=&gt; 6
     </code></pre>
   </section>
 
@@ -272,9 +274,69 @@ $ npm install
     <pre><code class="hljs" data-trim contenteditable>
 $ npm install --save express
     </code></pre>
+
+    <pre><code class="hljs" data-trim contenteditable>
+$ npm install --save-dev express
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Запуск скриптів</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+$ npm run hello
+    </code></pre>
+
+    <pre><code class="hljs" data-trim contenteditable>
+$ npm start
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>package-lock.json</h3>
+
+    <p>Зафіксовані версії залежностей</p>
   </section>
 </section>
 
 <section>
-  TODO: yarn, input, output, file
+  <h2>yarn</h2>
+
+  <section>
+    <h3>yet another package manager</h3>
+
+    <ul>
+      <li>Швидкий</li>
+      <li><strike>Lock-файли</strike></li>
+      <li><strike>...</strike></li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Створення нового проекту</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+$ yarn init
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Встановлення залежностей</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+$ yarn init
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Додавання залежностей</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+$ yarn add express
+    </code></pre>
+  </section>
+</section>
+
+<section>
+  TODO: input, output
 </section>

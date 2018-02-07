@@ -30,6 +30,8 @@
   - Файлова система.
 - [Слайди](/slides/01_2-node-basics)
 
+#### Лекція 1.3*: Приведення типів
+
 #### Практика 1: Javascript
 - Теми: JavaScript. Переваги Linux. Оболонка node. Звневаджування програм (debugger).
 - [План](/seminars/01-javascript.md)
