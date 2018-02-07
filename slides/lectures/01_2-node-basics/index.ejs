@@ -77,12 +77,6 @@ var currentPath = path.join(__dirname, 'app.js');
 
 console.log(currentPath);
     </code></pre>
-
-    <pre><code class="hljs" data-trim contenteditable>
-```
-/home/yevhene/work/tmp/app.js
-```
-    </code></pre>
   </section>
 
   <section>
@@ -109,6 +103,25 @@ fs.readFile('app.js', 'utf8', function(err, content) {
   } else {
     console.log(content);
   }
+});
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>readline</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+var readline = require('readline');
+
+var rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+rl.question('What do you think of Node.js? ', function(answer) {
+  console.log('Thank you for your valuable feedback: ' + answer);
+
+  rl.close();
 });
     </code></pre>
   </section>
@@ -224,7 +237,7 @@ license: (ISC)
   "description": "KPP",
   "main": "app.js",
   "repository": "git@github.com:yevhene/kpp.git",
-  "author": "Yevhen Shemet <yevhene@gmail.com>",
+  "author": "Yevhen Shemet &lt;yevhene@gmail.com&gt;",
   "scripts": {
     "start": "node app/app"
   },
@@ -338,5 +351,56 @@ $ yarn add express
 </section>
 
 <section>
-  TODO: input, output
+  <h2>Корисні пакети</h2>
+
+  <section>
+    <h3>readline-sync</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+var readlineSync = require('readline-sync');
+
+var userName = readlineSync.question('May I have your name? ');
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>readline-sync</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+var readlineSync = require('readline-sync');
+
+var userName = readlineSync.question('May I have your name? ');
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>blessed</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+var blessed = require('blessed');
+
+var screen = blessed.screen({
+  smartCSR: true
+});
+
+var icon = blessed.image({
+  parent: screen,
+  top: 0,
+  left: 0,
+  file: __dirname + '/my-program-icon.png',
+});
+
+screen.render();
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>awesome ...</h3>
+
+    <a href="http://node.cool">node.cool</a>
+  </section>
+</section>
+
+<section>
+  <h2>Питання?</h2>
 </section>
