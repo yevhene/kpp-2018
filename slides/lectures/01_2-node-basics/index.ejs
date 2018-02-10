@@ -59,8 +59,6 @@ $ node app.js
       <li>Number</li>
       <li>Array</li>
     </ul>
-
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects">джерело</a>
   </section>
 </section>
 
@@ -147,16 +145,18 @@ server.listen(3000);
   <h2>Власний модуль</h2>
 
   <section>
+    <i>mul.js</i>
     <pre><code class="hljs" data-trim contenteditable>
 module.exports = function(a, b) {
   return a * b;
 };
     </code></pre>
 
+    <i>app.js</i>
     <pre><code class="hljs" data-trim contenteditable>
 var mul = require('./mul');
 
-console.log(add(2, 4)); //=&gt; 6
+console.log(mul(2, 4)); //=&gt; 6
     </code></pre>
   </section>
 
@@ -240,9 +240,6 @@ license: (ISC)
   "author": "Yevhen Shemet &lt;yevhene@gmail.com&gt;",
   "scripts": {
     "start": "node app/app"
-  },
-  "engines": {
-    "node": "8.5"
   },
   "dependencies": {
     "express": "~4.14.0"
@@ -352,16 +349,6 @@ $ yarn add express
 
 <section>
   <h2>Корисні пакети</h2>
-
-  <section>
-    <h3>readline-sync</h3>
-
-    <pre><code class="hljs" data-trim contenteditable>
-var readlineSync = require('readline-sync');
-
-var userName = readlineSync.question('May I have your name? ');
-    </code></pre>
-  </section>
 
   <section>
     <h3>readline-sync</h3>
