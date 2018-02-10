@@ -43,3 +43,6 @@
 ## Література
 - [You Don't Know JS (Kyle Simpson) (en.)](https://github.com/getify/You-Dont-Know-JS)
 - [Node.js 8 the Right Way (Jim R. Wilson) (en.)](https://pragprog.com/book/jwnode2/node-js-8-the-right-way)
+- [Eloquent JavaScript (Second Edition) (en.)](https://eloquentjavascript.net/)
+- [Eloquent JavaScript (Third Edition Draft) (en.)](https://eloquentjavascript.net/3rd_edition/)
+
