@@ -45,11 +45,15 @@
 - [ECMAScript® Language Specification (ECMA-262)](https://www.ecma-international.org/ecma-262/) - Стандарт ECMAScript. Вичерпний.
 
 ### Безкоштовні книги
-- [You Don't Know JS (Kyle Simpson) (en.)](https://github.com/getify/You-Dont-Know-JS) - Серія книг, яка детально розтлумачує основні концепції JavaScript. По одній книзі на концепцію. Цих книг достатньо, щоб своїми знаннями JavaScript, глибоко вразити інтерв'юверів на співбесіді в будь-яку компанію.
-- [You Don't Know JS (Kyle Simpson) (ru.)](https://github.com/azat-io/you-dont-know-js-ru) - Проект по перекладу книги "You Don't Know JS" на російську мову. Переклад може містити помилки і містить багато ще неперекладених глав.
-- [Eloquent JavaScript (Second Edition) (en.)](https://eloquentjavascript.net/) - Відома та популярна книга присвячена JavaScript.
-- [Eloquent JavaScript (Third Edition Draft) (en.)](https://eloquentjavascript.net/3rd_edition/) - Чорновик третього видання. Актуальний але може містити помилки і недопрацювання.
+- [You Don't Know JS (Kyle Simpson) (en.)](https://github.com/getify/You-Dont-Know-JS) - Серія книг, яка детально розтлумачує основні концепції JavaScript. По одній книзі на концепцію. Цих книг достатньо, щоб своїми знаннями JavaScript, глибоко вразити інтерв'юверів на співбесіді в будь-яку компанію;
+- [You Don't Know JS (Kyle Simpson) (ru.)](https://github.com/azat-io/you-dont-know-js-ru) - Проект по перекладу книги "You Don't Know JS" на російську мову. Переклад може містити помилки і містить багато ще неперекладених глав;
+- [Eloquent JavaScript (Second Edition) (Marijn Haverbeke) (en.)](https://eloquentjavascript.net/) - Відома та популярна книга присвячена JavaScript;
+- [Eloquent JavaScript (Third Edition Draft) (Marijn Haverbeke) (en.)](https://eloquentjavascript.net/3rd_edition/) - Чорновик третього видання. Актуальний але може містити помилки і недопрацювання;
+- [Learning JavaScript Design Patterns (Addy Osmani)] - Патерни проектування JavaScript;
+- [Speaking JavaScript (Dr. Axel Rauschmayer)](http://speakingjs.com/es5/index.html) - Детальний розгляд JavaScript до версії ES5 включно;
+- [Speaking JavaScript (Dr. Axel Rauschmayer)](http://exploringjs.com/es6/index.html) - Дуже детальний розгляд JavaScript ES6;
+- [Speaking JavaScript (Dr. Axel Rauschmayer)](http://exploringjs.com/es6/index.html) - Дуже детальний розгляд JavaScript ES2016 і ES2017.
 
 ### Книги
-- [Node.js 8 the Right Way (Jim R. Wilson) (en.)](https://pragprog.com/book/jwnode2/node-js-8-the-right-way)
+- [Node.js 8 the Right Way (Jim R. Wilson) (en.)](https://pragprog.com/book/jwnode2/node-js-8-the-right-way) - Дуже корисне і правильне введення в JavaScript.
 
