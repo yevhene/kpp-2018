@@ -54,7 +54,7 @@
 - [You Don't Know JS (Kyle Simpson) (en.)](https://github.com/getify/You-Dont-Know-JS) - Серія книг, яка детально розтлумачує основні концепції JavaScript. По одній книзі на концепцію. Цих книг достатньо, щоб своїми знаннями JavaScript, глибоко вразити інтерв'юверів на співбесіді в будь-яку компанію;
 - [Eloquent JavaScript (Second Edition) (Marijn Haverbeke) (en.)](https://eloquentjavascript.net/) - Відома та популярна книга присвячена JavaScript;
 - [Eloquent JavaScript (Third Edition Draft) (Marijn Haverbeke) (en.)](https://eloquentjavascript.net/3rd_edition/) - Чернетка третього видання. Актуальний але може містити помилки і недопрацювання;
-- [Learning JavaScript Design Patterns (Addy Osmani) (en.)] - Патерни проектування JavaScript;
+- [Learning JavaScript Design Patterns (Addy Osmani) (en.)](https://addyosmani.com/resources/essentialjsdesignpatterns/book/) - Патерни проектування JavaScript;
 - [Exploring ES6 (Dr. Axel Rauschmayer) (en.)](http://exploringjs.com/es6/index.html) - Дуже детальний розгляд JavaScript ES6;
 - [Exploring ES2016 and ES2017 (Dr. Axel Rauschmayer) (en.)](http://exploringjs.com/es2016-es2017/index.html) - Дуже детальний розгляд JavaScript ES2016 і ES2017;
 - [Learn CSS Layout (Mikito Takada) (en.)](http://book.mixu.net/css/single-page.html) - Книга по верстці та CSS;
