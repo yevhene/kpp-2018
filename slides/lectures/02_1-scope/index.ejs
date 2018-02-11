@@ -1,0 +1,87 @@
+“scope” as the set of rules that govern how
+the engine can look up a variable by its identifier name and find it,
+either in the current scope, or in any of the nested scopes it’s contained
+within.
+
+##
+Tokenizing/Lexing
+- Tokens
+Parsing
+- AST
+Code-Generation
+- executable machine code generation
+
+##
+Engine
+Responsible for start-to-finish compilation and execution of our
+JavaScript program.
+Compiler
+One of Engine’s friends; handles all the dirty work of parsing and
+code-generation (see previous section).
+Scope
+Another friend of Engine; collects and maintains a look-up list of
+all the declared identifiers (variables), and enforces a strict set of
+rules as to how these are accessible to currently executing code.
+
+# Lexical Scope
+
+function foo(a) {
+  var b = a * 2;
+
+  function bar(c) {
+    console.log(a, b, c);
+  }
+
+  bar(b * 3);
+}
+
+foo(2); // 2, 4, 12
+
+## Nested scope
+
+function foo(a) {
+console.log( a + b );
+}
+var b = 2;
+foo( 2 ); // 4
+
+## Lookup
+
+## Cheating
+### Eval
+
+function foo(str, a) {
+eval( str ); // cheating!
+console.log( a, b );
+}
+var b = 2;
+foo( "var b = 3;", 1 ); // 1, 3
+
+Perfrmance sux
+
+### With
+var obj = {
+a: 1,
+b: 2,
+};
+// more
+obj.a = 2;
+obj.b = 3;
+obj.c = 4;
+// "easier" short-hand
+with (obj) {
+  a = 3;
+  b = 4;
+  c = 5;
+}
+
+## Hoisting
+
+a = 2;
+var a;
+console.log( a );
+
+## Function scope var
+
+## Block Scope let/const
+Temporal Dead Zone
