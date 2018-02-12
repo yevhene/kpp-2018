@@ -6,7 +6,7 @@
 
 ## Документація
 - [Bootstrap 4 (en.)](https://getbootstrap.com/) - Документація для CSS-фреймворку Bootstrap.
-- [MDN Web docs (en.)] (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction) - Документація Mozilla Firefox зазвичай найкраща.
+- [MDN Web docs (en.)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction) - Документація Mozilla Firefox зазвичай найкраща.
 
 ## Безкоштовні книги
 - [You Don't Know JS (Kyle Simpson) (en.)](https://github.com/getify/You-Dont-Know-JS) - Серія книг, яка детально розтлумачує основні концепції JavaScript. По одній книзі на концепцію. Цих книг достатньо, щоб своїми знаннями JavaScript, глибоко вразити інтерв'юверів на співбесіді в будь-яку компанію;
@@ -16,7 +16,7 @@
 - [Exploring ES6 (Dr. Axel Rauschmayer) (en.)](http://exploringjs.com/es6/index.html) - Дуже детальний розгляд JavaScript ES6;
 - [Exploring ES2016 and ES2017 (Dr. Axel Rauschmayer) (en.)](http://exploringjs.com/es2016-es2017/index.html) - Дуже детальний розгляд JavaScript ES2016 і ES2017;
 - [Learn CSS Layout (Mikito Takada) (en.)](http://book.mixu.net/css/single-page.html) - Книга по верстці та CSS;
-- [Survive JS React Book](https://survivejs.com/react/introduction/) - Книга по React;
+- [Survive JS React Book (en.)](https://survivejs.com/react/introduction/) - Книга по React;
 - [jQuery Fundamental (en.)](http://jqfundamentals.com/) - Книга по jQuery;
 - [DOM Enlightenment (en.)](http://domenlightenment.com/) - Чернетка книги по DOM;
 - [HTML Canvas Deep Dive (en.)](https://joshondesign.com/p/books/canvasdeepdive/toc.html) - Книга по Canvas.
@@ -24,7 +24,7 @@
 ## Російськомовні джерела
 - [You Don't Know JS (Kyle Simpson) (рус.)](https://github.com/azat-io/you-dont-know-js-ru) - Проект по перекладу книги "You Don't Know JS" на російську мову. Містить незавершений переклад книг;
 - [JavaScript-Garden (Ivo Wetzel) (рус.)](http://bonsaiden.github.io/JavaScript-Garden/ru/) - Короткий розгляд основних складних моментів у JavaScript;
-- [MDN Web docs (рус.)] (https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/%D0%92%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5_%D0%B2_JavaScript) - Російськомовний варіант MDN прийнятної якості.
+- [MDN Web docs (рус.)](https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/%D0%92%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5_%D0%B2_JavaScript) - Російськомовний варіант MDN прийнятної якості.
 
 ## Книги
 - [Node.js 8 the Right Way (Jim R. Wilson) (en.)](https://pragprog.com/book/jwnode2/node-js-8-the-right-way) - Дуже корисне і правильне введення в JavaScript.
