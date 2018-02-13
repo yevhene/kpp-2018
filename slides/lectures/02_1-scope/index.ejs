@@ -89,7 +89,7 @@ function foo() {
 }
 
 foo();
-console.log( a ); // 2
+console.log(a); // 2
     </code></pre>
   </section>
 
@@ -211,6 +211,21 @@ console.log(a); // ?
   <h3>function scope (особливості)</h3>
 
   <section>
+    <h3>eval</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+function foo(str, a) {
+  eval(str);
+  console.log(a, b);
+}
+var b = 2;
+foo("var b = 3;", 1); // 1, 3
+    </code></pre>
+
+    <p>Проблеми з продуктивністю</p>
+  </section>
+
+  <section>
     <h3>Цикли (проблема)</h3>
 
     <pre><code class="hljs" data-trim contenteditable>
@@ -266,21 +281,20 @@ for (var j = 0; j &lt; 3; j++) {
 </section>
 
 <section>
-  <h2>Небезпечні інструменти</h2>
+  <h2>Спеціальні випадки</h2>
 
   <section>
-    <h3>eval</h3>
+    <h3>try/catch</h3>
 
     <pre><code class="hljs" data-trim contenteditable>
-function foo(str, a) {
-  eval(str);
-  console.log(a, b);
+try {
+  throw 'Error';
+} catch(e) {
+  console.log(e); // Error
 }
-var b = 2;
-foo("var b = 3;", 1); // 1, 3
-    </code></pre>
 
-    <p>Проблеми з продуктивністю</p>
+console.log(e); // ReferenceError: e is not defined
+    </code></pre>
   </section>
 
   <section>

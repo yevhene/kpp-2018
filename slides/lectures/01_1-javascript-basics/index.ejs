@@ -462,7 +462,7 @@ function helloStudent(name, group) {
 var studentName = 'Василь';
 
 helloStudent(studentName, '2-КН');
-//> Привіт Василь з 2-КН!
+//&gt; Привіт Василь з 2-КН!
     </code></pre>
   </section>
 
@@ -476,7 +476,52 @@ function add(a, b) {
   return a + b;
 }
 
-add(3, 4); //=> 5
+add(3, 4); //=&gt; 5
+    </code></pre>
+  </section>
+</section>
+
+<section>
+  <h2>Стандартна бібліотека</h2>
+
+  <section>
+    <h3>Вбудовані об'єкти</h3>
+
+    <ul>
+      <li>Math</li>
+      <li>JSON</li>
+      <li>Number</li>
+      <li>Array</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Вивід</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+console.log('Hello World');
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Таймер</h3>
+
+    <p>Виведе 'Hello World' через 1 секунду:</p>
+    <pre><code class="hljs" data-trim contenteditable>
+setTimeout(function() {
+  console.log('Hello World!');
+}, 1000);
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Таймер з повторенням</h3>
+
+    <p>Кожної секнди буде виводити 'Hello World':</p>
+    <pre><code class="hljs" data-trim contenteditable>
+setInterval(function() {
+  console.log('Hello World!');
+}, 1000)
     </code></pre>
   </section>
 </section>

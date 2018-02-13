@@ -81,7 +81,7 @@ window.e === e; // true
   </section>
 
   <section>
-    <h3>user strict</h3>
+    <h3>use strict</h3>
 
     <pre><code class="hljs" data-trim contenteditable>
 "use strict";
@@ -182,7 +182,7 @@ window.e === e; // true
     <pre><code class="hljs" data-trim contenteditable>
 var a = {};
 a.valueOf = function() { return 3 };
-a === 3; // true
+a == 3; // true
     </code></pre>
   </section>
 
@@ -190,7 +190,7 @@ a === 3; // true
     <h3>toString</h3>
 
     <pre><code class="hljs" data-trim contenteditable>
-{}.toString() // "[object Object]"
+({}).toString() // "[object Object]"
 (function() {}).toString() // "function () {}"
     </code></pre>
   </section>
