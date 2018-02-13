@@ -205,10 +205,20 @@ var a;
 console.log(a); // ?
     </code></pre>
   </section>
+
+  <section>
+    <h3>Вспливання функцій (hoisting)</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+var a = 8;
+function a() {}
+console.log(a); // ?
+    </code></pre>
+  </section>
 </section>
 
 <section>
-  <h3>function scope (особливості)</h3>
+  <h2>Спеціальні випадки</h2>
 
   <section>
     <h3>eval</h3>
@@ -224,64 +234,6 @@ foo("var b = 3;", 1); // 1, 3
 
     <p>Проблеми з продуктивністю</p>
   </section>
-
-  <section>
-    <h3>Цикли (проблема)</h3>
-
-    <pre><code class="hljs" data-trim contenteditable>
-var funcs = [];
-for (var i = 0; i &lt; 3; i++) {
-  funcs[i] = function() {
-    console.log(i);
-  };
-}
-for (var j = 0; j &lt; 3; j++) {
-  funcs[j]();
-}
-    </code></pre>
-  </section>
-
-  <section>
-    <h3>Фабрика</h3>
-
-    <pre><code class="hljs" data-trim contenteditable>
-function createFunction(i) {
-  return function() {
-    console.log(i);
-  };
-}
-
-var funcs = [];
-for (var i = 0; i &lt; 3; i++) {
-  funcs[i] = createFunction(i);
-}
-for (var j = 0; j &lt; 3; j++) {
-  funcs[j]();
-}
-    </code></pre>
-  </section>
-
-  <section>
-    <h3>IIFE</h3>
-
-    <pre><code class="hljs" data-trim contenteditable>
-var funcs = [];
-for (var i = 0; i &lt; 3; i++) {
-  funcs[i] = (function(j) {
-    return function() {
-      console.log(j);
-    };
-  }(i));
-}
-for (var j = 0; j &lt; 3; j++) {
-  funcs[j]();
-}
-    </code></pre>
-  </section>
-</section>
-
-<section>
-  <h2>Спеціальні випадки</h2>
 
   <section>
     <h3>try/catch</h3>
