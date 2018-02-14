@@ -10,3 +10,82 @@
 - [Гра бики та корови (укр.)](https://uk.wikipedia.org/wiki/%D0%91%D0%B8%D0%BA%D0%B8_%D1%82%D0%B0_%D0%BA%D0%BE%D1%80%D0%BE%D0%B2%D0%B8)
 - [Життя (укр.)](https://uk.wikipedia.org/wiki/%D0%96%D0%B8%D1%82%D1%82%D1%8F_%28%D0%B3%D1%80%D0%B0%29)
 - [20 запитань (en.)](https://en.wikipedia.org/wiki/20Q)
+
+### Матеріали
+
+#### node
+
+##### Запуск аплікації
+```
+node app.js
+```
+
+##### Запуск аплікації в режимі зневаждення
+```
+node inspect app.js
+```
+
+##### Запуск аплікації в режимі зневаждення з зовнішнім зневаджувачем
+```
+node --inspect app.js
+```
+
+##### Запуск аплікації в режимі зневаждення з зовнішнім зневаджувачем із зупинкою на першій стрічці
+```
+node --inspect-brk app.js
+```
+
+##### Приєднання зовнішнього зневаджувача Google Chrome
+Перейдіть на адресу:
+```
+chrome://inspect
+```
+
+#### npm
+
+##### Ініціалізація аплікації
+```
+npm init
+```
+
+##### Додавання пакету
+```
+npm install --save package
+```
+
+##### Встановлення всіх доданих пакетів
+```
+npm install
+```
+
+#### console
+
+##### Вивід у термінал
+```
+console.log('Hello World!');
+```
+
+##### Очистка терміналу
+```
+console.clear();
+```
+
+##### Вивід у термінал сиволів без нової лінії
+```
+process.stdout.write('Hello');
+```
+**Обережно! `process.stdout.write` вміє працювати тільки зі стрічками. Якщо ви хочете вивести число, необхідно привести його до стрічки за допомогою `toString()`.**
+
+#### readline-sync
+
+##### Встановлення
+```
+npm install --save readline-sync
+```
+
+#### Зчитування вводу користувача
+```
+const readlineSync = require('readline-sync');
+
+const name = readlineSync.question('What is your name? ');
+```
