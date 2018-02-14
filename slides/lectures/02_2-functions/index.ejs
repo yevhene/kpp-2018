@@ -31,16 +31,6 @@ hello(); // hello
   </section>
 
   <section>
-    <h3>Скорочений запис (=&gt;)</h3>
-
-    <pre><code class="hljs" data-trim contenteditable>
-var hello = () =&gt; { console.log('hello') };
-
-hello(); // hello
-    </code></pre>
-  </section>
-
-  <section>
     <h3>Змінна</h3>
 
     <pre><code class="hljs" data-trim contenteditable>
@@ -140,18 +130,19 @@ helloAll('Vasya', 'Petya');
   </section>
 
   <section>
-    <h3>Деструкція (destruction)</h3>
-
-    <pre><code class="hljs" data-trim contenteditable>
-TODO
-    </code></pre>
-  </section>
-
-  <section>
     <h3>Вирази у аргументах по замовчуванню</h3>
 
     <pre><code class="hljs" data-trim contenteditable>
-TODO
+function setMark(student, mark = defaultMark()) {
+  console.log(student, 'achieved mark:', mark);
+}
+
+function defaultMark() {
+  return 'три бала';
+}
+
+setMark('Vasyl')
+// Vasyl achieved mark: три бала
     </code></pre>
   </section>
 
@@ -159,7 +150,12 @@ TODO
     <h3>Спеціальний виклик</h3>
 
     <pre><code class="hljs" data-trim contenteditable>
-TODO call/apply
+function helloAll() {
+  console.log.apply(null, arguments)
+}
+
+helloAll.call(null, 'Vasyl', 'Petro');
+helloAll.apply(null, ['Vasyl', 'Petro']);
     </code></pre>
   </section>
 
@@ -167,7 +163,72 @@ TODO call/apply
     <h3>Прив'язування аргументів (bind)</h3>
 
     <pre><code class="hljs" data-trim contenteditable>
-TODO
+function add(a, b) {
+  return a + b;
+}
+
+const add2 = add.bind(null, 2);
+add2(3); // 5
+add(1, 6); // 7
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Скорочений запис (=&gt;)</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+let hello = () =&gt; console.log('hello');
+let helloStudent = student =&gt; console.log('hello', student);
+let helloAll = (...students) =&gt; {
+  console.log('Hello', ...students);
+  console.log('Glad to see you')
+};
+
+helloAll('Vasya', 'Petro');
+// Hello Vasya Petro
+// Glad to see you
+    </code></pre>
+  </section>
+</section>
+
+<section>
+  <h2>Замикання (closures)</h2>
+
+  <section>
+    <p>Замикання - це функції, що посилаються на незалежні (вільні) змінні (змінні, які використовуються локально, але визначені в обмеженій області видимості). Іншими словами, ці функції "пам'ятають" (лексичне) середовище, в якому вони були створені.</p>
+  </section>
+
+  <section>
+    <pre><code class="hljs" data-trim contenteditable>
+function prepareGreet(student) {
+  const title = 'Dear ' + student;
+
+  return function(greeting) {
+    console.log(title, greeting);
+  };
+}
+
+const greet = prepareGreet('Vasyl');
+greet('you have три бала');
+// Dear Vasyl you have три бала
+    </code></pre>
+  </section>
+
+  <section>
+    <pre><code class="hljs" data-trim contenteditable>
+function newCounter(init = 0) {
+  let count = init;
+
+  return {
+    inc: () =&gt; count = count + 1
+  };
+}
+
+const counter = newCounter(7);
+counter.inc(); // 8
+
+const anotherCounter = newCounter();
+anotherCounter.inc(); // 1
     </code></pre>
   </section>
 </section>
@@ -176,7 +237,16 @@ TODO
   <h2>Звотротні виклики</h2>
 
   <section>
-    <h3>TODO</h3>
+    <pre><code class="hljs" data-trim contenteditable>
+function greetStudent(nameCallback) {
+  let name = nameCallback();
+  console.log('Greeting', name);
+}
+
+greetStudent(function() {
+  return 'Dmytro';
+})
+    </code></pre>
   </section>
 
   <section>
@@ -200,13 +270,37 @@ setInterval(function() {
 }, 1000)
     </code></pre>
   </section>
-</section>
-
-<section>
-  <h2>Замикання (closures)</h2>
 
   <section>
-    TODO
+    <h3>Функції вищого порядку</h3>
+
+    <p>every/some</p>
+    <pre><code class="hljs" data-trim contenteditable>
+let arr = [1, 2, 3];
+arr.some(e =&gt; e === 2); // true
+arr.every(e =&gt; e === 2); // false
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Функції вищого порядку</h3>
+
+    <p>map</p>
+    <pre><code class="hljs" data-trim contenteditable>
+let arr = [1, 2, 3];
+arr = arr.map(e =&gt; e * 2);
+arr; // 2, 4, 6
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Функції вищого порядку</h3>
+
+    <p>reduce</p>
+    <pre><code class="hljs" data-trim contenteditable>
+let arr = [1, 2, 3];
+arr.reduce((acc, e) =&gt; acc + e); // 6
+    </code></pre>
   </section>
 </section>
 
@@ -262,6 +356,22 @@ for (var i = 0; i &lt; 3; i++) {
   }(i));
 }
 for (var j = 0; j &lt; 3; j++) {
+  funcs[j]();
+}
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>let</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+var funcs = [];
+for (let i = 0; i &lt; 3; i++) {
+  funcs[i] = function() {
+    console.log(i);
+  };
+}
+for (let j = 0; j &lt; 3; j++) {
   funcs[j]();
 }
     </code></pre>
