@@ -73,6 +73,19 @@ enroll.length; // 2
   </section>
 
   <section>
+    <h3>Контроль кількісті аргументів</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+function inspect(student) {
+  console.log(student);
+}
+
+inspect(); // undefined
+inspect(1, 2, 3); // 1
+    </code></pre>
+  </section>
+
+  <section>
     <h3>Значення за замовчуванням<small><sup>(ES6)</sup></small></h3>
 
     <pre><code class="hljs" data-trim contenteditable>
