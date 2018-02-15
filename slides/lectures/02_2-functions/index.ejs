@@ -220,7 +220,7 @@ function newCounter(init = 0) {
   let count = init;
 
   return {
-    inc: () =&gt; count = count + 1
+    inc: () =&gt; count++
   };
 }
 
@@ -252,7 +252,7 @@ greetStudent(function() {
   <section>
     <h3>Таймер</h3>
 
-    <p>Виведе 'Hello World' через 1 секунду:</p>
+    <p>Виведе 'Hello World' через 1 секунду</p>
     <pre><code class="hljs" data-trim contenteditable>
 setTimeout(function() {
   console.log('Hello World!');
@@ -263,7 +263,7 @@ setTimeout(function() {
   <section>
     <h3>Таймер з повторенням</h3>
 
-    <p>Кожної секнди буде виводити 'Hello World':</p>
+    <p>Кожної секунди буде виводити 'Hello World'</p>
     <pre><code class="hljs" data-trim contenteditable>
 setInterval(function() {
   console.log('Hello World!');
