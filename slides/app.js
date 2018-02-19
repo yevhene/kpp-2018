@@ -14,12 +14,12 @@ app.set('layout', path.join(__dirname, 'layouts/layout'));
 
 app.use(express.static(path.join(__dirname, 'static')));
 
-glob.sync(path.join(__dirname, 'lectures/*/')).forEach(dir => {
-  const lecture = path.basename(dir);
-  app.get(`/${lecture}`, (req, res) =>
-    res.render(path.join('lectures', lecture))
+glob.sync(path.join(__dirname, 'content/*/')).forEach(dir => {
+  const unit = path.basename(dir);
+  app.get(`/${unit}`, (req, res) =>
+    res.render(path.join('content', unit))
   );
-  app.use(express.static(path.join(__dirname, 'lectures', lecture, 'assets')));
+  app.use(express.static(path.join(__dirname, 'content', unit, 'assets')));
 });
 
 module.exports = app;
