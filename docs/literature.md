@@ -21,6 +21,9 @@
 - [DOM Enlightenment (en.)](http://domenlightenment.com/) - Чернетка книги по DOM;
 - [HTML Canvas Deep Dive (en.)](https://joshondesign.com/p/books/canvasdeepdive/toc.html) - Книга по Canvas.
 
+## Українськомовні джерела
+- [Pro Git (укр.)](https://git-scm.com/book/uk/v2) - Переклад книги створеною спільнотою по системі контролю версій Git.
+
 ## Російськомовні джерела
 - [You Don't Know JS (Kyle Simpson) (рус.)](https://github.com/azat-io/you-dont-know-js-ru) - Проект по перекладу книги "You Don't Know JS" на російську мову. Містить незавершений переклад книг;
 - [JavaScript-Garden (Ivo Wetzel) (рус.)](http://bonsaiden.github.io/JavaScript-Garden/ru/) - Короткий розгляд основних складних моментів у JavaScript;
