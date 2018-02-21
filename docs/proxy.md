@@ -21,7 +21,7 @@ npm config set https-proxy http://proxy.lan:3128
 /etc/environment
 ```
 
-Стрічки:
+Рядки:
 ```
 export http_proxy=http://proxy.lan:3128/
 export https_proxy=http://proxy.lan:3128/
@@ -35,7 +35,7 @@ export socks_proxy=http://proxy.lan:3128/
 /etc/apt/apt.conf.d/40proxy
 ```
 
-Додати стрічки:
+Додати рядки:
 ```
 Acquire::http::Proxy "http://proxy.lan:3128";
 Acquire::https::Proxy "http://proxy.lan:3128";
