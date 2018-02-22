@@ -89,3 +89,25 @@ const readlineSync = require('readline-sync');
 
 const name = readlineSync.question('What is your name? ');
 ```
+
+## Git
+
+### Ініціалізація
+```
+git init
+```
+
+### Додавання файлів
+```
+git add FILE
+```
+
+### Створення внеску (commit)
+```
+git commit -m "message"
+```
+
+### Завантаження внеску на сервер
+```
+git push origin master
+```
