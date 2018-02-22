@@ -192,9 +192,9 @@ var student = {
   group: 'КН'
 };
 
-items['name'] //=> 'Василь'
-items.group //=> 'КН'
-items.group = 'ПІ' //=> 'ПІ'
+student['name'] //=> 'Василь'
+student.group //=> 'КН'
+student.group = 'ПІ' //=> 'ПІ'
 ```
 
 ### 12. Умови (conditional statement)
