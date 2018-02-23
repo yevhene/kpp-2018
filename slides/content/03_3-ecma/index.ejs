@@ -73,7 +73,7 @@
       </thead>
 
       <tbody>
-        <tr><td>5</td><td>Грудень 2009</td><td>"strict mode", JSON, рефлекія, численні виправлення та прояснення</td></tr>
+        <tr><td>5</td><td>Грудень 2001</td><td>"strict mode", JSON, рефлексія, численні виправлення та прояснення</td></tr>
         <tr><td>5.1</td><td>Червень 2001</td><td>Узгоджено зі стандартом ISO/IEC 16262:2011</td></tr>
       </tbody>
     </table>
@@ -425,8 +425,8 @@ class Admin extends User {
   <section>
     <pre><code class="javascript" data-trim>
 let a = [1, 2];
-let iter = a[Symbol.iterator];
-let instance = iter();
+let createIterator = a[Symbol.iterator];
+let i = createIterator();
 
 i.next().value; //=&gt; 1
 i.next().value; //=&gt; 2
@@ -455,14 +455,20 @@ const Pokémon = {
     return {
       next() {
         i++;
-        return {
-          value: list[i],
-          done: i == length(list)
+        if (i == list.length) {
+          return {
+            done: true
+          };
+        } else {
+          return {
+            value: list[i],
+            done: i == length(list)
+          };
         }
       }
-    }
+    };
   }
-}
+};
     </code></pre>
   </section>
 </section>
