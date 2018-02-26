@@ -1,0 +1,218 @@
+<section>
+  <h1>express.js</h1>
+  <h2>Лекція 4.2</h2>
+</section>
+
+<section>
+  <h2>http</h2>
+
+  <section>
+    <pre><code class="hljs" data-trim contenteditable>
+const http = require('http');
+
+http.createServer(function(req, res) {
+  res.write('Hello World!');
+  res.end();
+}).listen(8080);
+    </code></pre>
+  </section>
+</section>
+
+<section>
+  <h2>Hello World</h2>
+
+  <section>
+    <h3>Інсталяція</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+npm install --save express
+    </code></pre>
+  </section>
+
+  <section>
+    <pre><code class="hljs" data-trim contenteditable>
+const express = require('express');
+const app = express(); // Створення аплікації
+
+// Обробка будь-якого запиту '*'
+app.get('*', function (req, res) {
+  // Відповідь 'Hello World'
+  res.send('Hello World!');
+});
+
+// Очікування з'єднань на 3000 порт
+app.listen(3000, function() {
+  // Callback після запуску програми
+  console.log('App started on http://localhost:3000');
+});
+    </code></pre>
+  </section>
+</section>
+
+<section>
+  <h2>Шляхи (Routes)</h2>
+
+  <section>
+    <h3>Корінь</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+app.get('/', function (req, res) {
+  // ...
+});
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Складені</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+app.get('/tasks/search', function (req, res) {
+  // ...
+});
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Методи</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+app.get('/tasks', function (req, res) {
+  // ...
+});
+
+app.post('/tasks', function (req, res) {
+  // ...
+});
+    </code></pre>
+  </section>
+</section>
+
+<section>
+  <h2>Шаблонізатори</h2>
+
+  <section>
+    <h3>jade</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+TODO
+    </code></pre>
+  </section>
+</section>
+
+<section>
+  <h2>Параметри</h2>
+
+  <section>
+    <h3>params</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+app.get('/tasks/:id', function (req, res) {
+  // req.params.id === '1'
+});
+    </code></pre>
+
+    <pre><code class="hljs" data-trim contenteditable>
+http://localhost:3000/tasks/1
+// або
+GET /tasks/1
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>query</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+app.get('/tasks', function (req, res) {
+  // req.query.q === 'kittens'
+  // req.query.order === 'desc'
+});
+    </code></pre>
+
+    <pre><code class="hljs" data-trim contenteditable>
+GET /tasks?q=kittens&amp;order=desc
+    </code></pre>
+  </section>
+</section>
+
+<section>
+  <h2>body-parser</h2>
+
+  <section>
+    <h3>Інсталяція</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+npm install --save body-parser
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Використання</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+const bodyParser = require('body-parser');
+
+// Для форм (application/x-www-form-urlencoded)
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// Для API (application/json)
+app.use(bodyParser.json());
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Форма</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+&lt;form action="/tasks" method="post"&gt;
+  &lt;input name="title" type="text" /&gt;
+  &lt;input type="submit" /&gt;
+&lt;/form&gt;
+    </code></pre>
+
+    <pre><code class="hljs" data-trim contenteditable>
+app.post('/tasks', function (req, res) {
+  // req.body.title
+});
+    </code></pre>
+  </section>
+</section>
+
+<section>
+  <h2>Ресурси</h2>
+
+  <section>
+    <h3>Методи</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <td>Метод</td><td>Обробник</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>GET</td><td>app.get</td></tr>
+        <tr><td>POST</td><td>app.post</td></tr>
+        <tr><td>PUT</td><td>app.put</td></tr>
+        <tr><td>DELETE</td><td>app.del</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <pre><code class="hljs" data-trim contenteditable>
+TODO
+    </code></pre>
+  </section>
+</section>
+
+<section>
+# routes
+# params/query
+# resources
+# templates jade
+# static assets
+</section>
+
+<section>
+  <h2>Питання?</h2>
+</section>
