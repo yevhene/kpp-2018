@@ -96,7 +96,11 @@
 ### Тиждень 4: Web
 
 #### Лекція 4.1: Протоколи та стандарти Web
-WWW, URL. HTTP (methods, headers).
+- Теми:
+  - WWW;
+  - URI (URL/URN);
+  - HTTP (request, response, method, header).
+- [Слайди](/slides/04_1-web)
 
 #### Лекція 4.2: express.js
 Роутинг. Шаблонізатори.

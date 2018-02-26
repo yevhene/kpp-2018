@@ -294,7 +294,7 @@ Host: vntu.edu.ua
   </section>
 
   <section>
-    <h3>REsponse</h3>
+    <h3>Response</h3>
     <pre><code class="hljs" data-trim contenteditable>
 HTTP/1.1 200 OK
 Server: nginx/1.13.1
@@ -482,13 +482,26 @@ Access-Control-Allow-Methods: PUT, DELETE
 </section>
 
 <section>
-  <h2>Доступ</h2>
+  <h2>Інструменти</h2>
 
   <section>
     <h3>curl</h3>
 
     <pre><code class="hljs" data-trim contenteditable>
-curl -X POST -H 'Content-Type: application/json' -d '{""}' http://google.com
+curl -X POST \
+     -H 'Content-Type: application/json' \
+     -d '{"data": 1}' \
+     http://google.com
     </code></pre>
   </section>
+
+  <section>
+    <h3>Postman</h3>
+
+    <img src="images/postman.png">
+  </section>
+</section>
+
+<section>
+  <h2>Питання?</h2>
 </section>
