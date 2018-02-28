@@ -88,13 +88,51 @@ app.post('/tasks', function (req, res) {
 </section>
 
 <section>
-  <h2>Шаблонізатори</h2>
+  <h2>Шаблонізатори (ejs)</h2>
 
   <section>
-    <h3>jade</h3>
+    <h3>Підключення</h3>
 
     <pre><code class="hljs" data-trim contenteditable>
-TODO
+npm install --save ejs
+    </code></pre>
+
+    <pre><code class="hljs" data-trim contenteditable>
+app.set('view engine', 'ejs');
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Використання</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+app.get('/', function(req, res) {
+    res.render('pages/index', { user: 'Vasya' });
+});
+    </code></pre>
+
+    <i>pages/index.ejs</i>
+    <pre><code class="hljs" data-trim contenteditable>
+&lt;h1&gt;Hello &lt;%= user %&gt;&lt;/h1&gt;
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Частини (Partials)</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+&lt;% include ../partials/head %&gt;
+&lt;h1&gt;Hello &lt;%= user %&gt;&lt;/h1&gt;
+&lt;% include ../partials/foor %&gt;
+    </code></pre>
+
+    <i>partials/head.ejs</i>
+    <pre><code class="hljs" data-trim contenteditable>
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Hello app&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
     </code></pre>
   </section>
 </section>
@@ -131,6 +169,48 @@ app.get('/tasks', function (req, res) {
     <pre><code class="hljs" data-trim contenteditable>
 GET /tasks?q=kittens&amp;order=desc
     </code></pre>
+  </section>
+</section>
+
+<section>
+  <h2>Ресурси</h2>
+
+  <section>
+    <h3>Методи</h3>
+
+    <p><b>CRUD</b> - Create Read Update Delete</p>
+    <table>
+      <thead>
+        <tr>
+          <td>Метод</td><td>Обробник</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>GET</td><td>app.get</td></tr>
+        <tr><td>POST</td><td>app.post</td></tr>
+        <tr><td>PUT</td><td>app.put</td></tr>
+        <tr><td>DELETE</td><td>app.del</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <table>
+      <thead>
+        <tr>
+          <td>Дія</td><td>Метод</td><td>Шлях</td><td>Функція</td><td>Шаблон</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Список</td><td>GET</td><td>/tasks</td><td>index</td><td>index.ejs</td></tr>
+        <tr><td>Форма створення</td><td>GET</td><td>/tasks/new</td><td>new</td><td>new.ejs</td></tr>
+        <tr><td>Створення</td><td>POST</td><td>/tasks</td><td>create</td><td>-</td></tr>
+        <tr><td>Перегляд</td><td>GET</td><td>/tasks/:id</td><td>show</td><td>show.ejs</td></tr>
+        <tr><td>Форма редагування</td><td>GET</td><td>/tasks/:id/edit</td><td>edit</td><td>edit.ejs</td></tr>
+        <tr><td>Збереження</td><td>PUT</td><td>/tasks/:id</td><td>update</td><td>-</td></tr>
+        <tr><td>Видалення</td><td>DELETE</td><td>/tasks/:id</td><td>destroy</td><td>-</td></tr>
+      </tbody>
+    </table>
   </section>
 </section>
 
@@ -178,39 +258,139 @@ app.post('/tasks', function (req, res) {
 </section>
 
 <section>
-  <h2>Ресурси</h2>
+  <h2>Статичні файли</h2>
 
   <section>
-    <h3>Методи</h3>
+    <h3>Підключення директорії</h3>
 
-    <table>
-      <thead>
-        <tr>
-          <td>Метод</td><td>Обробник</td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>GET</td><td>app.get</td></tr>
-        <tr><td>POST</td><td>app.post</td></tr>
-        <tr><td>PUT</td><td>app.put</td></tr>
-        <tr><td>DELETE</td><td>app.del</td></tr>
-      </tbody>
-    </table>
+    <pre><code class="hljs" data-trim contenteditable>
+app.use(express.static('public'));
+    </code></pre>
+
+    <pre><code class="hljs" data-trim contenteditable>
+http://localhost:3000/images/kitten.jpg
+http://localhost:3000/css/style.css
+http://localhost:3000/js/app.js
+http://localhost:3000/images/bg.png
+http://localhost:3000/index.html
+    </code></pre>
   </section>
 
   <section>
+    <h3>Абсолютний шлях</h3>
+
+    <p>Більш надійний варіант. Програму можна запускати з будь якої директорії.</p>
     <pre><code class="hljs" data-trim contenteditable>
-TODO
+app.use(express.static(__dirname + '/public'));
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Точка монтування</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+app.use('/assets', express.static('public'));
+    </code></pre>
+
+    <pre><code class="hljs" data-trim contenteditable>
+http://localhost:3000/assets/images/kitten.jpg
+http://localhost:3000/assets/css/style.css
+http://localhost:3000/assets/js/app.js
+http://localhost:3000/assets/images/bg.png
     </code></pre>
   </section>
 </section>
 
 <section>
-# routes
-# params/query
-# resources
-# templates jade
-# static assets
+  <h2>Middleware</h2>
+
+  <section>
+    <h3>Будь-який шлях</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+const express = require('express');
+const app = express();
+
+app.get('/admin*', function(req, res, next) {
+  const dateString = new Date().toString();
+  console.log(`REQUEST ${dateString}`);
+  next();
+});
+
+app.get('*', function(req, res, next) {
+  res.send('Hello World!');
+});
+
+app.listen(3000);
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>next можна не викликати</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+const express = require('express');
+const app = express();
+
+app.get('/admin*', function(req, res, next) {
+  if (req.query.password === 'qwerty') {
+    next();
+  } else {
+    res.status(500);
+    res.send('You are not an admin');
+  }
+});
+
+app.get('*', function(req, res, next) {
+  res.send('Hello World!');
+});
+
+app.listen(3000);
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Спеціальний синтаксис</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+const express = require('express');
+const app = express();
+
+const myLogger = function(req, res, next) {
+  const dateString = new Date().toString();
+  console.log(`REQUEST ${dateString}`);
+  next();
+};
+
+app.use(myLogger);
+
+app.get('/', function (req, res) {
+  res.send('Hello World!');
+});
+
+app.listen(3000);
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Аплікація це також middleware</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+const express = require('express');
+
+const app = express(); // the main app
+const admin = express(); // the sub app
+
+// /admin
+admin.get('/', function(req, res) {
+  res.send('Admin Homepage');
+});
+
+app.use('/admin', admin); // mount the sub app
+
+app.listen(3000);
+    </code></pre>
+  </section>
 </section>
 
 <section>

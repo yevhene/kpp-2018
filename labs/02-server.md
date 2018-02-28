@@ -53,9 +53,9 @@ $ npm install --save express
 
 ### Ініціалізація
 ```javascript
-var express = require('express');
+const express = require('express');
 
-var app = express();
+const app = express();
 ```
 
 ### Обробка запиту
@@ -64,8 +64,8 @@ app.get('/tasks', function(req, res) {
   res.send('Немає задач на сьогодні!');
 });
 ```
-Зверніть увагу що замість `get`, можна використати будь який з стандартних http методів: `post`, `put` або `delete`.
-Зазвичай для отримання даних використовується `get`, для створення `post`, для оновлення `put`, для видалення `delete`.
+Зверніть увагу що замість `get`, можна використати будь який з стандартних http методів: `post`, `put` або `del` ля `delete`.
+Зазвичай для отримання даних використовується `get`, для створення `post`, для оновлення `put`, для видалення `del`.
 
 ### Обробка параметрів
 ```javascript
@@ -100,6 +100,23 @@ app.listen(3000);
 ```
 Сервер запуститься на `3000` порту.
 
+## Використання шаблонів
+
+### Інсталяція
+```
+npm install --save ejs
+```
+
+### Інтеграція з express
+```javascript
+app.set('view engine', 'ejs');
+```
+
+### Використання
+```javascript
+res.render('tasks/index');
+```
+
 ## Body parser
 Необхідний для обробки тіл запитів.
 
@@ -110,7 +127,7 @@ npm install --save body-parser
 
 ### Інтеграція з express
 ```javascript
-var bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 ```
 
@@ -125,12 +142,16 @@ app.post('/tasks', function(req, res) {
 });
 ```
 
-## Робота з DOM
-
-### Вставка HTML
-```javascript
-document.getElementById('#tasks').innerHTML = '<h1>Добрий вечір</h1>';
-```
+## Ресурс
+| Дія               | Метод  | Шлях            | Функція | Шаблон    |
+|------------------ |------- |---------------- |-------- |---------- |
+| Список            | GET    | /tasks          | index   | index.ejs |
+| Форма створення   | GET    | /tasks/new      | new     | new.ejs   |
+| Створення         | POST   | /tasks          | create  | -         |
+| Перегляд          | GET    | /tasks/:id      | show    | show.ejs  |
+| Форма редагування | GET    | /tasks/:id/edit | edit    | edit.ejs  |
+| Збереження        | PUT    | /tasks/:id      | update  | -         |
+| Видалення         | DELETE | /tasks/:id      | destroy | -         |
 
 ## MongoDB
 Документо-орієнтована база даних.
@@ -150,11 +171,11 @@ $ npm install --save mongodb
 
 ### Під'єднання
 ```javascript
-var mongodb = require('mongodb');
-var MongoClient = mongodb.MongoClient;
+const mongodb = require('mongodb');
+const MongoClient = mongodb.MongoClient;
 
-var mongoUrl = 'mongodb://localhost:27017/02-server';
-var mongo;
+const mongoUrl = 'mongodb://localhost:27017/02-server';
+const mongo;
 MongoClient
   .connect(mongoUrl)
   .then(function(db) {
