@@ -35,10 +35,13 @@
     <h3>DNS</h3>
     <h4>Domain Name System</h4>
   </section>
+</section>
+
+<section>
+  <h2>URL</h3>
 
   <section>
-    <h3>URL</h3>
-    <h4>Uniform Resource Locator</h4>
+    <h3>Uniform Resource Locator</h3>
 
     <pre><code class="hljs" data-trim contenteditable>
 scheme://user:password@host:port/path?query#fragment
@@ -46,8 +49,7 @@ scheme://user:password@host:port/path?query#fragment
   </section>
 
   <section>
-    <h3>URL</h3>
-    <h4>Scheme</h4>
+    <h3>Scheme</h3>
 
     <pre><code class="hljs" data-trim contenteditable>
 http://
@@ -57,13 +59,11 @@ ftp://
   </section>
 
   <section>
-    <h3>URL</h3>
-    <h4>user:password</h4>
+    <h3>user:password</h3>
   </section>
 
   <section>
-    <h3>URL</h3>
-    <h4>host:port</h4>
+    <h3>host:port</h3>
 
     <pre><code class="hljs" data-trim contenteditable>
 facebook.com
@@ -73,8 +73,7 @@ localhost:3000
   </section>
 
   <section>
-    <h3>URL</h3>
-    <h4>path</h4>
+    <h3>path</h3>
 
     <pre><code class="hljs" data-trim contenteditable>
 https://kpp-2018.herokuapp.com/slides/04_1-web
@@ -82,8 +81,7 @@ https://kpp-2018.herokuapp.com/slides/04_1-web
   </section>
 
   <section>
-    <h3>URL</h3>
-    <h4>query</h4>
+    <h3>query</h3>
 
     <pre><code class="hljs" data-trim contenteditable>
 https://www.google.com.ua/search?q=kittens%26puppies&amp;sourceid=chrome
@@ -91,8 +89,28 @@ https://www.google.com.ua/search?q=kittens%26puppies&amp;sourceid=chrome
   </section>
 
   <section>
-    <h3>URL</h3>
-    <h4>fragment</h4>
+    <h3>Percent-encoding</h3>
+
+    <table>
+      <thead>
+        <tr>
+          <td>Символ</td><td>Кодування</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td> (space)</td><td>%20</td></tr>
+        <tr><td>"</td><td>%22</td></tr>
+        <tr><td>%</td><td>%25</td></tr>
+        <tr><td>&amp;</td><td>%26</td></tr>
+        <tr><td>.</td><td>%2E</td></tr>
+      </tbody>
+    </table>
+
+    <p><a href="https://en.wikipedia.org/wiki/Percent-encoding">Детально</a></p>
+  </section>
+
+  <section>
+    <h3>fragment</h3>
 
     <pre><code class="hljs" data-trim contenteditable>
 https://github.com/yevhene/kpp-2018#Розділ-1-Термінал-shell
@@ -100,8 +118,7 @@ https://github.com/yevhene/kpp-2018#Розділ-1-Термінал-shell
   </section>
 
   <section>
-    <h3>URL</h3>
-    <h4>Examples</h4>
+    <h3>Приклади</h3>
 
     <pre><code class="hljs" data-trim contenteditable>
 scheme://user:password@host:port/path?query#fragment
@@ -117,6 +134,24 @@ magnet:?xl=10826029&amp;dn=kino.mkv&amp;xt=urn:sha1:3I42H3...
   </section>
 
   <section>
+    <h3>Замовчування</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+http://domain:80/
+https://domain:443/
+    </code></pre>
+  </section>
+</section>
+
+<section>
+  <section>
+    <h3>URI</h3>
+    <h4>Uniform Resource Identifier</h4>
+
+    <img src="images/uri.png">
+  </section>
+
+  <section>
     <h3>URN</h3>
     <h4>Uniform Resource Name</h4>
 
@@ -125,13 +160,6 @@ urn: isbn:5170224575
 urn: sha1:YNCKHTQCWBTRNJIV4WNAE52SJUQCZO5C
 urn: uuid:6e8bc430-9c3a-11d9-9669-0800200c9a66
     </code></pre>
-  </section>
-
-  <section>
-    <h3>URI</h3>
-    <h4>Uniform Resource Identifier</h4>
-
-    <img src="images/uri.png">
   </section>
 </section>
 

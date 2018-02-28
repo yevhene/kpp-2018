@@ -106,7 +106,7 @@ npm install --save body-parser
 ### Інтеграція з express
 ```javascript
 const bodyParser = require('body-parser');
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 ```
 
 ### Доступ до тіла

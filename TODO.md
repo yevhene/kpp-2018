@@ -5,7 +5,3 @@
 
 ### webpack
 - next.js
-
-### HTTP
-- url encoding
-- 443/80
