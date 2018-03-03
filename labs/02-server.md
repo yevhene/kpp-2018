@@ -12,15 +12,18 @@
 - Блог - створення посту, коментування, адмінка автора блогу.
 
 ## Ресурс
-| Дія               | Метод  | Шлях            | Функція | Шаблон    |
-|------------------ |------- |---------------- |-------- |---------- |
-| Список            | GET    | /tasks          | index   | index.ejs |
-| Форма створення   | GET    | /tasks/new      | new     | new.ejs   |
-| Створення         | POST   | /tasks          | create  | -         |
-| Перегляд          | GET    | /tasks/:id      | show    | show.ejs  |
-| Форма редагування | GET    | /tasks/:id/edit | edit    | edit.ejs  |
-| Збереження        | PUT    | /tasks/:id      | update  | -         |
-| Видалення         | DELETE | /tasks/:id      | destroy | -         |
+| Дія               | Метод    | Шлях               | Функція | Шаблон    |
+|------------------ |--------- |------------------- |-------- |---------- |
+| Список            | GET      | /tasks             | index   | index.ejs |
+| Форма створення   | GET      | /tasks/new         | new     | new.ejs   |
+| Створення         | POST     | /tasks             | create  | -         |
+| Перегляд          | GET      | /tasks/:id         | show    | show.ejs  |
+| Форма редагування | GET      | /tasks/:id/edit    | edit    | edit.ejs  |
+| Збереження        | PUT      | /tasks/:id         | update  | -         |
+| Видалення         | DELETE   | /tasks/:id         | destroy | -         |
+| Або:                                                                    |
+| Збереження        | POST     | /tasks/:id/update  | update  | -         |
+| Видалення         | GET/POST | /tasks/:id/destroy | destroy | -         |
 
 ## Express
 
@@ -90,9 +93,14 @@ npm install --save ejs
 app.set('view engine', 'ejs');
 ```
 
+### Визначення директорії
+```javascript
+app.set('views', __dirname + '/views');
+```
+
 ### Використання
 ```javascript
-res.render('tasks/index');
+res.render('tasks/show', { name: 'Задача' });
 ```
 
 ## Body parser

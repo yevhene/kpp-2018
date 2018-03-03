@@ -30,21 +30,105 @@ npm install --save express
   </section>
 
   <section>
+    <h3>Створення аплікації</h3>
+
     <pre><code class="hljs" data-trim contenteditable>
 const express = require('express');
-const app = express(); // Створення аплікації
+const app = express();
+    </code></pre>
+  </section>
 
-// Обробка будь-якого запиту '*'
+  <section>
+    <h3>Обробка запиту</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
 app.get('*', function (req, res) {
-  // Відповідь 'Hello World'
   res.send('Hello World!');
 });
+    </code></pre>
+  </section>
 
-// Очікування з'єднань на 3000 порт
+  <section>
+    <h3>Старт сервера</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
 app.listen(3000, function() {
-  // Callback після запуску програми
   console.log('App started on http://localhost:3000');
 });
+    </code></pre>
+  </section>
+</section>
+
+<section>
+  <h2>Запит (req)</h2>
+
+  <section>
+    <h3>params</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+app.get('/tasks/:id', function (req, res) {
+  // req.params.id === '1'
+});
+    </code></pre>
+
+    <pre><code class="hljs" data-trim contenteditable>
+http://localhost:3000/tasks/1
+// або
+GET /tasks/1
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>query</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+app.get('/tasks', function (req, res) {
+  // req.query.q === 'kittens'
+  // req.query.order === 'desc'
+});
+    </code></pre>
+
+    <pre><code class="hljs" data-trim contenteditable>
+GET /tasks?q=kittens&amp;order=desc
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>req.param</h3>
+
+    <p>Шукає по черзі в:</p>
+    <ul>
+      <li><i>req.params</i></li>
+      <li><i>req.body</i> (вимагає <i>body-parser</i>)</li>
+      <li><i>req.query</i></li>
+    </ul>
+
+    <pre><code class="hljs" data-trim contenteditable>
+req.param('name')
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Заголовки</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+req.get('content-type') //=&gt; text/plain
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Cookies</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+req.cookies.name //=&gt; Vasya
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Інша інформація про запит</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+req.ip //=&gt; 127.0.01
     </code></pre>
   </section>
 </section>
@@ -88,6 +172,84 @@ app.post('/tasks', function (req, res) {
 </section>
 
 <section>
+  <h2>Запит (req)</h2>
+
+  <section>
+    <h3>Статичний контент</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+app.get('/', function(req, res) {
+  res.send('Hello World!');
+});
+    </code></pre>
+
+    <pre><code class="hljs" data-trim contenteditable>
+app.get('/', function(req, res) {
+  res.send({ name: 'Petrov' });
+});
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Файл</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+app.get('/file/:name', function(req, res) {
+  const fileName = req.params.name;
+  res.sendFile(fileName, function(err) {
+    console.log('Sent:', fileName);
+  });
+});
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Встановити статус</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+app.get('/', function(req, res) {
+  res.status(403);
+});
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Відправити статус</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+app.get('/', function(req, res) {
+  res.sendStatus(403);
+  // Еквівалент: res.status(403).send('Forbidden')
+});
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Заголовки</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+res.set('Content-Type', 'text/plain');
+
+res.set({
+  'Content-Type': 'text/plain',
+  'Content-Length': '123',
+  'ETag': '12345'
+});
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Cookies</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+res.cookie('name', 'Vasyl', {
+  domain: '.example.com', path: '/admin'
+});
+    </code></pre>
+  </section>
+</section>
+
+<section>
   <h2>Шаблонізатори (ejs)</h2>
 
   <section>
@@ -99,6 +261,11 @@ npm install --save ejs
 
     <pre><code class="hljs" data-trim contenteditable>
 app.set('view engine', 'ejs');
+    </code></pre>
+
+    <p>Визначення директорії</p>
+    <pre><code class="hljs" data-trim contenteditable>
+app.set('views', __dirname + '/views');
     </code></pre>
   </section>
 
@@ -118,12 +285,25 @@ app.get('/', function(req, res) {
   </section>
 
   <section>
+    <h3>Вбудований JavaScript</h3>
+
+    <i>pages/index.ejs</i>
+    <pre><code class="hljs" data-trim contenteditable>
+&lt;% if (user) { %&gt;
+  &lt;h1&gt;Hello &lt;%= user %&gt;&lt;/h1&gt;
+&lt;% } else { %&gt;
+  &lt;h1&gt;Hello Guest&lt;/h1&gt;
+&lt;% } %&gt;
+    </code></pre>
+  </section>
+
+  <section>
     <h3>Частини (Partials)</h3>
 
     <pre><code class="hljs" data-trim contenteditable>
 &lt;% include ../partials/head %&gt;
 &lt;h1&gt;Hello &lt;%= user %&gt;&lt;/h1&gt;
-&lt;% include ../partials/foor %&gt;
+&lt;% include ../partials/foot %&gt;
     </code></pre>
 
     <i>partials/head.ejs</i>
@@ -134,40 +314,26 @@ app.get('/', function(req, res) {
   &lt;/head&gt;
   &lt;body&gt;
     </code></pre>
-  </section>
-</section>
 
-<section>
-  <h2>Параметри</h2>
-
-  <section>
-    <h3>params</h3>
-
+    <i>partials/foot.ejs</i>
     <pre><code class="hljs" data-trim contenteditable>
-app.get('/tasks/:id', function (req, res) {
-  // req.params.id === '1'
-});
-    </code></pre>
-
-    <pre><code class="hljs" data-trim contenteditable>
-http://localhost:3000/tasks/1
-// або
-GET /tasks/1
+  &lt;/body&gt;
+&lt;/html&gt;
     </code></pre>
   </section>
 
   <section>
-    <h3>query</h3>
+    <h3>pug</h3>
 
     <pre><code class="hljs" data-trim contenteditable>
-app.get('/tasks', function (req, res) {
-  // req.query.q === 'kittens'
-  // req.query.order === 'desc'
-});
-    </code></pre>
-
-    <pre><code class="hljs" data-trim contenteditable>
-GET /tasks?q=kittens&amp;order=desc
+doctype html
+html(lang='en')
+ head
+   title Pug
+ body
+   h1 Pug Examples
+   div.container
+     p Cool Pug example!
     </code></pre>
   </section>
 </section>
@@ -212,6 +378,25 @@ GET /tasks?q=kittens&amp;order=desc
       </tbody>
     </table>
   </section>
+
+  <section>
+    <p>HTML форми підтримують тільки <i>GET</i> і <i>POST</i></p>
+    <table>
+      <thead>
+        <tr>
+          <td>Дія</td><td>Метод</td><td>Шлях</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Збереження</td><td>PUT</td><td>/tasks/:id</td></tr>
+        <tr><td>Видалення</td><td>DELETE</td><td>/tasks/:id</td></tr>
+        <tr colspan="5">Альтурнатива:</tr>
+        <tr><td>Збереження</td><td>POST</td><td>/tasks/:id/update</td></tr>
+        <tr><td>Видалення</td><td>GET/POST</td><td>/tasks/:id/delete</td></tr>
+      </tbody>
+    </table>
+  </section>
+
 
   <section>
     <h3>Все можна виразити, як ресурси</h3>
@@ -318,13 +503,17 @@ http://localhost:3000/assets/images/bg.png
     <pre><code class="hljs" data-trim contenteditable>
 const express = require('express');
 const app = express();
+    </code></pre>
 
+    <pre><code class="hljs" data-trim contenteditable>
 app.get('/admin*', function(req, res, next) {
   const dateString = new Date().toString();
   console.log(`REQUEST ${dateString}`);
   next();
 });
+    </code></pre>
 
+    <pre><code class="hljs" data-trim contenteditable>
 app.get('*', function(req, res, next) {
   res.send('Hello World!');
 });
@@ -339,7 +528,9 @@ app.listen(3000);
     <pre><code class="hljs" data-trim contenteditable>
 const express = require('express');
 const app = express();
+    </code></pre>
 
+    <pre><code class="hljs" data-trim contenteditable>
 app.get('/admin*', function(req, res, next) {
   if (req.query.password === 'qwerty') {
     next();
@@ -348,7 +539,9 @@ app.get('/admin*', function(req, res, next) {
     res.send('You are not an admin');
   }
 });
+    </code></pre>
 
+    <pre><code class="hljs" data-trim contenteditable>
 app.get('*', function(req, res, next) {
   res.send('Hello World!');
 });
@@ -363,7 +556,9 @@ app.listen(3000);
     <pre><code class="hljs" data-trim contenteditable>
 const express = require('express');
 const app = express();
+    </code></pre>
 
+    <pre><code class="hljs" data-trim contenteditable>
 const myLogger = function(req, res, next) {
   const dateString = new Date().toString();
   console.log(`REQUEST ${dateString}`);
@@ -371,8 +566,10 @@ const myLogger = function(req, res, next) {
 };
 
 app.use(myLogger);
+    </code></pre>
 
-app.get('/', function (req, res) {
+    <pre><code class="hljs" data-trim contenteditable>
+app.get('*', function(req, res, next) {
   res.send('Hello World!');
 });
 
@@ -385,7 +582,9 @@ app.listen(3000);
 
     <pre><code class="hljs" data-trim contenteditable>
 const express = require('express');
+    </code></pre>
 
+    <pre><code class="hljs" data-trim contenteditable>
 const app = express(); // the main app
 const admin = express(); // the sub app
 
@@ -395,7 +594,9 @@ admin.get('/', function(req, res) {
 });
 
 app.use('/admin', admin); // mount the sub app
+    </code></pre>
 
+    <pre><code class="hljs" data-trim contenteditable>
 app.listen(3000);
     </code></pre>
   </section>
