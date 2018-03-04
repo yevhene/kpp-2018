@@ -4,8 +4,38 @@
 </section>
 
 <section>
+  <h2>form</h2>
+
+  <section>
+    <h3>HTML елемент</h3>
+
+    <p><b>method</b> - може бути лише GET і POST<p>
+
+    <pre><code class="hljs" data-trim contenteditable>
+&lt;form id="new_task" method="POST" action="/tasks"&gt;
+  &lt;!-- елементи керування --&gt;
+&lt;/form&gt;
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Елементи керування</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+&lt;form id="new_task" method="POST" action="/tasks"&gt;
+  &lt;input type="text" name="name" /&gt;
+
+  &lt;input type="submit" value="Створити нову задачу" /&gt;
+&lt;/form&gt;
+    </code></pre>
+
+    <img src="images/simple-form.png" />
+  </section>
+</section>
+
+<section>
 HTML form
- attributes (method, action)
+ attributes (method, action, id)
  fieldset/legend
 
 inputs
@@ -14,8 +44,11 @@ inputs
  submit
  reset
  checkbox
- password
  type="button"
+ password
+ file
+ hidden
+ image
 
 other-controls
  select
@@ -23,6 +56,13 @@ other-controls
  optgroup
  textarea
  button
+
+attrs
+  form
+  checked
+  autocomplete
+  formaction/formmethod
+  list
 
 special controls
  datalist
@@ -33,6 +73,18 @@ body parser
 
 validation
  client-side
+  attrs:
+    max
+    maxlength
+    min
+    multiple?
+    pattern
+    placeholder
+    reqadonly
+    disabled
+    required
+    step
+
   inputs HTML5:
    color
    date
