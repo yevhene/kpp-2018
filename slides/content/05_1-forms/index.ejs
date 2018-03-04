@@ -31,25 +31,135 @@
 
     <img src="images/simple-form.png" />
   </section>
+
+  <section>
+    <h3>Підписи</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+&lt;form id="new_task" method="POST" action="/tasks"&gt;
+  &lt;label for="new_task_name"&gt;Назва&lt;/label&gt;
+  &lt;input id="new_task_name" type="text" name="name" /&gt;&lt;br /&gt;
+
+  &lt;label&gt;
+    Деталі &lt;input type="text" name="details" /&gt;&lt;br /&gt;
+  &lt;/label&gt;
+
+  &lt;input type="submit" value="Створити нову задачу" /&gt;
+&lt;/form&gt;
+    </code></pre>
+
+    <img src="images/form-labels.png" />
+  </section>
+
+  <section>
+    <h3>Групи полів</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+&lt;form id="new_user" method="POST" action="/users"&gt;
+  &lt;fieldset&gt;
+    &lt;legend&gt;Персональні дані:&lt;/legend&gt;
+    ФІО: &lt;input type="text" name="first_name" /&gt;&lt;br/&gt;
+  &lt;/fieldset&gt;
+
+  &lt;fieldset&gt;
+    &lt;legend&gt;Оцінки:&lt;/legend&gt;
+    КПП: &lt;input type="text" name="scores[kpp]" /&gt;&lt;br/&gt;
+  &lt;/fieldset&gt;
+
+  &lt;input type="submit" value="Створити нову задачу" /&gt;
+&lt;/form&gt;
+    </code></pre>
+
+    <img src="images/form-with-groups.png" />
+  </section>
 </section>
 
 <section>
-HTML form
- attributes (method, action, id)
- fieldset/legend
+  <h2>input</h2>
 
-inputs
- text
- radio
- submit
- reset
- checkbox
- type="button"
- password
- file
- hidden
- image
+  <section>
+    <h3>Текстові</h3>
 
+    <pre><code class="hljs" data-trim contenteditable>
+User:
+&lt;input type="text" name="user" placeholder="Your login" /&gt;&lt;br/&gt;
+Pass:
+&lt;input type="password" name="pass" /&gt;
+    </code></pre>
+
+    <img src="images/form-inputs-text.png" />
+  </section>
+
+  <section>
+    <h3>Вибираючі</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+Що таке JavaScript?&lt;br /&gt;
+&lt;label&gt;
+  &lt;input type="radio" name="question[0]" value="a" checked /&gt;
+  a. Мова програмування
+&lt;/label&gt;&lt;br /&gt;
+&lt;label&gt;
+  &lt;input type="radio" name="question[0]" value="a" /&gt;
+  b. Чорна магія
+&lt;/label&gt;&lt;br /&gt;
+    </code></pre>
+
+    <img src="images/form-inputs-radios.png" />
+  </section>
+
+  <section>
+    <h3>Вибираючі (декілька варіантів)</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+Де використовується JavaScript?&lt;br /&gt;
+&lt;label&gt;
+  &lt;input type="checkbox" name="question[1]" value="a" checked /&gt;
+  a. На сервері
+&lt;/label&gt;&lt;br /&gt;
+&lt;label&gt;
+  &lt;input type="checkbox" name="question[1]" value="b" checked /&gt;
+  b. На мобільних
+&lt;/label&gt;
+    </code></pre>
+
+    <img src="images/form-inputs-checks.png" />
+  </section>
+
+  <section>
+    <h3>Файлові</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+&lt;input type="file" name="doc" /&gt;
+    </code></pre>
+
+    <img src="images/form-inputs-file.png" />
+  </section>
+
+  <section>
+    <h3>Приховані</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+&lt;input type="hidden" name="user_id" value="1" /&gt;
+    </code></pre>
+
+    <img src="images/form-inputs-hidden.png" />
+  </section>
+
+  <section>
+    <h3>Керуючі</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+&lt;input type="submit" value="Відправити" /&gt;&lt;br/&gt;
+&lt;input type="button" value="Виконати дію" onclick="do()" /&gt;&lt;br/&gt;
+&lt;input type="reset" value="Скинути" /&gt;
+    </code></pre>
+
+    <img src="images/form-inputs-buttons.png" />
+  </section>
+</section>
+
+<section>
 other-controls
  select
  option
@@ -59,9 +169,10 @@ other-controls
 
 attrs
   form
-  checked
   autocomplete
   formaction/formmethod
+  readonly
+  disabled
   list
 
 special controls
@@ -79,9 +190,6 @@ validation
     min
     multiple?
     pattern
-    placeholder
-    reqadonly
-    disabled
     required
     step
 
