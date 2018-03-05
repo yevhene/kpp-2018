@@ -172,7 +172,7 @@ app.post('/tasks', function (req, res) {
 </section>
 
 <section>
-  <h2>Запит (req)</h2>
+  <h2>Відповідь (res)</h2>
 
   <section>
     <h3>Статичний контент</h3>
@@ -244,6 +244,16 @@ res.set({
     <pre><code class="hljs" data-trim contenteditable>
 res.cookie('name', 'Vasyl', {
   domain: '.example.com', path: '/admin'
+});
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Redirect</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+app.get('/', function(req, res) {
+  res.redirect('/tasks');
 });
     </code></pre>
   </section>
@@ -355,7 +365,7 @@ html(lang='en')
         <tr><td>GET</td><td>app.get</td></tr>
         <tr><td>POST</td><td>app.post</td></tr>
         <tr><td>PUT</td><td>app.put</td></tr>
-        <tr><td>DELETE</td><td>app.del</td></tr>
+        <tr><td>DELETE</td><td>app.delete</td></tr>
       </tbody>
     </table>
   </section>
@@ -390,7 +400,7 @@ html(lang='en')
       <tbody>
         <tr><td>Збереження</td><td>PUT</td><td>/tasks/:id</td></tr>
         <tr><td>Видалення</td><td>DELETE</td><td>/tasks/:id</td></tr>
-        <tr colspan="5">Альтурнатива:</tr>
+        <tr colspan="5">Альтернатива:</tr>
         <tr><td>Збереження</td><td>POST</td><td>/tasks/:id/update</td></tr>
         <tr><td>Видалення</td><td>GET/POST</td><td>/tasks/:id/delete</td></tr>
       </tbody>
@@ -407,46 +417,6 @@ html(lang='en')
       <li><b>Створення набору задач</b> - /task_bundle</li>
       <li><b>Підзадачі</b> - /tasks/:id/subtasks</li>
     </ul>
-  </section>
-</section>
-
-<section>
-  <h2>body-parser</h2>
-
-  <section>
-    <h3>Інсталяція</h3>
-
-    <pre><code class="hljs" data-trim contenteditable>
-npm install --save body-parser
-    </code></pre>
-  </section>
-
-  <section>
-    <h3>Використання</h3>
-
-    <pre><code class="hljs" data-trim contenteditable>
-const bodyParser = require('body-parser');
-
-// Для форм (application/x-www-form-urlencoded)
-app.use(bodyParser.urlencoded({ extended: false }));
-    </code></pre>
-  </section>
-
-  <section>
-    <h3>Форма</h3>
-
-    <pre><code class="hljs" data-trim contenteditable>
-&lt;form action="/tasks" method="post"&gt;
-  &lt;input name="title" type="text" /&gt;
-  &lt;input type="submit" /&gt;
-&lt;/form&gt;
-    </code></pre>
-
-    <pre><code class="hljs" data-trim contenteditable>
-app.post('/tasks', function (req, res) {
-  // req.body.title
-});
-    </code></pre>
   </section>
 </section>
 
@@ -490,6 +460,89 @@ http://localhost:3000/assets/images/kitten.jpg
 http://localhost:3000/assets/css/style.css
 http://localhost:3000/assets/js/app.js
 http://localhost:3000/assets/images/bg.png
+    </code></pre>
+  </section>
+</section>
+
+<section>
+  <h2>Сесія</h2>
+
+  <section>
+    <h3>Проблема</h3>
+
+    <p>Зберігати значення пов'язані з конкретним користувачем.</p>
+  </section>
+
+  <section>
+    <h3>Встановлення</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+npm install --save express-session
+    </code></pre>
+
+    <pre><code class="hljs" data-trim contenteditable>
+app.use(session({
+  secret: 'some-secret',
+  cookie: { secure: true }
+}))
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Використання</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+app.get('/', function(req, res) {
+  if (req.session.views) {
+    req.session.views++;
+    res.send(`Hello ${req.session.views}-nth time!`);
+  } else {
+    req.session.views = 1;
+    res.send('Welcome first time!');
+  }
+})
+    </code></pre>
+  </section>
+</section>
+
+<section>
+  <h2>flash</h2>
+
+  <section>
+    <h3>Проблема</h3>
+
+    <p>Необхідно показати повідомлення користувачу після редіректу.</p>
+  </section>
+
+  <section>
+    <h3>Встановлення</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+npm install --save flash
+    </code></pre>
+
+    <pre><code class="hljs" data-trim contenteditable>
+app.use(session()); // сесія
+app.use(require('flash')());
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Використання</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+app.get('/', function(req, res) {
+  req.flash('info', 'Hello!');
+  res.redirect('/tasks')
+});
+    </code></pre>
+
+    <pre><code class="hljs" data-trim contenteditable>
+&lt;% for (let message of flash) { %&gt;
+  &lt;p class="flash-&lt;%= message.type %&gt;"&gt;
+    &lt;%= message.message %&gt;
+  &lt;/p&gt;
+&lt;% } %&gt;
     </code></pre>
   </section>
 </section>
