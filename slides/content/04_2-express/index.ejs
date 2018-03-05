@@ -42,7 +42,7 @@ const app = express();
     <h3>Обробка запиту</h3>
 
     <pre><code class="hljs" data-trim contenteditable>
-app.get('*', function (req, res) {
+app.get('*', function(req, res) {
   res.send('Hello World!');
 });
     </code></pre>
@@ -66,7 +66,7 @@ app.listen(3000, function() {
     <h3>params</h3>
 
     <pre><code class="hljs" data-trim contenteditable>
-app.get('/tasks/:id', function (req, res) {
+app.get('/tasks/:id', function(req, res) {
   // req.params.id === '1'
 });
     </code></pre>
@@ -320,7 +320,7 @@ app.get('/', function(req, res) {
     <pre><code class="hljs" data-trim contenteditable>
 &lt;html&gt;
   &lt;head&gt;
-    &lt;title&gt;Hello app&lt;/title&gt;
+    &lt;title&gt;Дуже важлива аплікація&lt;/title&gt;
   &lt;/head&gt;
   &lt;body&gt;
     </code></pre>
@@ -339,7 +339,7 @@ app.get('/', function(req, res) {
 doctype html
 html(lang='en')
  head
-   title Pug
+   title #{title}
  body
    h1 Pug Examples
    div.container
@@ -358,14 +358,14 @@ html(lang='en')
     <table>
       <thead>
         <tr>
-          <td>Метод</td><td>Обробник</td>
+          <th>CRUD</th><th>Метод</th><th>Обробник</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td>GET</td><td>app.get</td></tr>
-        <tr><td>POST</td><td>app.post</td></tr>
-        <tr><td>PUT</td><td>app.put</td></tr>
-        <tr><td>DELETE</td><td>app.delete</td></tr>
+        <tr><td>Create</td><td>POST</td><td>app.post</td></tr>
+        <tr><td>Read</td><td>GET</td><td>app.get</td></tr>
+        <tr><td>Update</td><td>PUT</td><td>app.put</td></tr>
+        <tr><td>Delete</td><td>DELETE</td><td>app.delete</td></tr>
       </tbody>
     </table>
   </section>
@@ -374,17 +374,17 @@ html(lang='en')
     <table>
       <thead>
         <tr>
-          <td>Дія</td><td>Метод</td><td>Шлях</td><td>Функція</td><td>Шаблон</td>
+          <th>Дія</th><th>Метод</th><th>Шлях</th><th>Функція</th><th>Шаблон</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td>Список</td><td>GET</td><td>/tasks</td><td>index</td><td>index.ejs</td></tr>
-        <tr><td>Форма створення</td><td>GET</td><td>/tasks/new</td><td>new</td><td>new.ejs</td></tr>
-        <tr><td>Створення</td><td>POST</td><td>/tasks</td><td>create</td><td>-</td></tr>
-        <tr><td>Перегляд</td><td>GET</td><td>/tasks/:id</td><td>show</td><td>show.ejs</td></tr>
-        <tr><td>Форма редагування</td><td>GET</td><td>/tasks/:id/edit</td><td>edit</td><td>edit.ejs</td></tr>
-        <tr><td>Збереження</td><td>PUT</td><td>/tasks/:id</td><td>update</td><td>-</td></tr>
-        <tr><td>Видалення</td><td>DELETE</td><td>/tasks/:id</td><td>destroy</td><td>-</td></tr>
+        <tr><td>Список</td><td>GET</td><td>/resource</td><td>index</td><td>index.ejs</td></tr>
+        <tr><td>Форма створення</td><td>GET</td><td>/resource/new</td><td>new</td><td>new.ejs</td></tr>
+        <tr><td>Створення</td><td>POST</td><td>/resource</td><td>create</td><td>-</td></tr>
+        <tr><td>Перегляд</td><td>GET</td><td>/resource/:id</td><td>show</td><td>show.ejs</td></tr>
+        <tr><td>Форма редагування</td><td>GET</td><td>/resource/:id/edit</td><td>edit</td><td>edit.ejs</td></tr>
+        <tr><td>Збереження</td><td>PUT</td><td>/resource/:id</td><td>update</td><td>-</td></tr>
+        <tr><td>Видалення</td><td>DELETE</td><td>/resource/:id</td><td>destroy</td><td>-</td></tr>
       </tbody>
     </table>
   </section>
@@ -394,13 +394,13 @@ html(lang='en')
     <table>
       <thead>
         <tr>
-          <td>Дія</td><td>Метод</td><td>Шлях</td>
+          <th>Дія</th><th>Метод</th><th>Шлях</th>
         </tr>
       </thead>
       <tbody>
         <tr><td>Збереження</td><td>PUT</td><td>/tasks/:id</td></tr>
         <tr><td>Видалення</td><td>DELETE</td><td>/tasks/:id</td></tr>
-        <tr colspan="5">Альтернатива:</tr>
+        <tr colspan="5"><td>Альтернатива:</td></tr>
         <tr><td>Збереження</td><td>POST</td><td>/tasks/:id/update</td></tr>
         <tr><td>Видалення</td><td>GET/POST</td><td>/tasks/:id/delete</td></tr>
       </tbody>
@@ -522,8 +522,10 @@ npm install --save flash
     </code></pre>
 
     <pre><code class="hljs" data-trim contenteditable>
+const flash = require('flash');
+
 app.use(session()); // сесія
-app.use(require('flash')());
+app.use(flash());
     </code></pre>
   </section>
 
@@ -533,7 +535,7 @@ app.use(require('flash')());
     <pre><code class="hljs" data-trim contenteditable>
 app.get('/', function(req, res) {
   req.flash('info', 'Hello!');
-  res.redirect('/tasks')
+  res.redirect('/tasks');
 });
     </code></pre>
 
