@@ -10,5 +10,8 @@
 - arrays
 - parse
 
+### promises
+- finally
+
 ### async
 - asynchronous iteration/generation
