@@ -11,4 +11,4 @@
 - parse
 
 ### async
-- asynchronous iteration
+- asynchronous iteration/generation
