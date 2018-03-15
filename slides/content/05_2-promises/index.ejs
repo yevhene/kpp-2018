@@ -60,7 +60,7 @@ function userAddress(req, res) {
   User.findById(req.userId, function(err, user) {
     Address.findById(user.addressId, function(err, address) {
       var opts = { address: address };
-      jade.renderFile('address.jade', opts, function(err, html) {
+      jade.renderFile('show.jade', opts, function(err, html) {
         res.send(html);
       });
     });
@@ -81,7 +81,7 @@ function placesNearby(req, res) {
           var opts = {
             address: address, users: users, places: places
           };
-          jade.renderFile('address.jade', opts, function(err, html) {
+          jade.renderFile('show.jade', opts, function(err, html) {
               res.send(html);
           });
         });
@@ -129,7 +129,7 @@ function placesNearbyOrError(req, res) {
           var opts = {
             address: address, users: users, places: places
           };
-          jade.renderFile('address.jade', opts, function(err, html) {
+          jade.renderFile('show.jade', opts, function(err, html) {
             if (err) {
               res.send('Error ' + err.toString());
               return;
@@ -519,7 +519,7 @@ function userAddress(req, res) {
   User
     .findById(req.userId)
     .then(user =&gt; Address.findById(user.addressId))
-    .then(address =&gt; jade.renderFile('address.jade', { address }))
+    .then(address =&gt; jade.renderFile('show.jade', { address }))
     .then(html =&gt; res.send(html));
 }
     </code></pre>
@@ -539,7 +539,7 @@ function placesNearby(req, res) {
       Place.near(address).findAll()
     ]))
     .then([address, users, places] =&gt;
-      renderFile('address.jade', { address, users, places })
+      renderFile('show.jade', { address, users, places })
     )
     .then(html =&gt; res.send(html));
 }
@@ -560,7 +560,7 @@ function placesNearbyOrError(req, res) {
       Place.near(address).findAll()
     ]))
     .then([address, users, places] =&gt;
-      renderFile('address.jade', { address, users, places})
+      renderFile('show.jade', { address, users, places })
     )
     .then(html =&gt; res.send(html))
     .catch(err =&gt; res.send('Error' + err.toString()));
@@ -574,12 +574,12 @@ function placesNearbyOrError(req, res) {
 
   <section>
     <ul>
-      <li>+ Майже звичний хід виконання</li>
-      <li>+ Проста обробка помилок</li>
-      <li>+ Гілки виконання</li>
-      <li>- Все ж таки не дуже звичний хід виконання</li>
-      <li>- Область видимості</li>
-      <li>- Помилки не завжди оброблюються</li>
+      <li><b>+</b> Майже звичний хід виконання</li>
+      <li><b>+</b> Проста обробка помилок</li>
+      <li><b>+</b> Гілки виконання</li>
+      <li><b>-</b> Все ж таки не дуже звичний хід виконання</li>
+      <li><b>-</b> Область видимості</li>
+      <li><b>-</b> Помилки не завжди оброблюються</li>
     </ul>
   </section>
 </section>
