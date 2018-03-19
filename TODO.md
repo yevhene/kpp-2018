@@ -17,3 +17,4 @@
 - asynchronous iteration/generation
 
 regexp
+environment variables
