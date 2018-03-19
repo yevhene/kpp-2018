@@ -140,7 +140,7 @@ MongoClient
   "description": "KPP Lab 1: Browser",
   "main": "app.js",
   "homepage": "https://kpp-lab-1.herokuapp.com",
-  "author": "Yevhen Shemet &ltyevhen@vntu.edu.ua&gt"
+  "author": "Yevhen Shemet &lt;yevhen@vntu.edu.ua&gt;"
   "repository": "git@github.com:yevhene/kpp-lab-1.git",
   "license": "MIT",
   ...
@@ -159,7 +159,7 @@ MongoClient
     "express": "^4.15.4",
     "mongodb": "^2.2.31"
   },
-  "dependencies": {
+  "devDependencies": {
     "eslint": "^1.18.1"
   },
   ...
@@ -174,7 +174,7 @@ MongoClient
 {
   ...,
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
     "lint": "node_modules/.bin/eslint ./"
   },
   ...
@@ -236,7 +236,7 @@ log: node log_server.js
     </code></pre>
 
     <pre><code class="javascript" data-trim>
-node_modules/.bin/nf start web=5
+$ node_modules/.bin/nf start web=5
     </code></pre>
   </section>
 
