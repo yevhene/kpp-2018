@@ -11,7 +11,9 @@
 - parse
 
 ### promises
-- finally
+- definition
 
 ### async
 - asynchronous iteration/generation
+
+regexp
