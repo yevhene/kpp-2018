@@ -150,11 +150,12 @@ const mongodb = require('mongodb');
 const MongoClient = mongodb.MongoClient;
 
 const mongoUrl = 'mongodb://localhost:27017/02-server';
-const mongo;
+let mongo;
 MongoClient
   .connect(mongoUrl)
-  .then(function(db) {
-    mongo = db;
+  .then(function(client) {
+    mongo = client.db();
+    client.close();
   });
 ```
 Зверніть увагу на `mongoUrl`:

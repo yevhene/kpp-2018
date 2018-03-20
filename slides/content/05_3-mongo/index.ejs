@@ -171,11 +171,12 @@ const mongoUrl = 'mongodb://localhost:27017/02-server';
     <h3>З'єднання</h3>
 
     <pre><code class="hljs" data-trim contenteditable>
-const mongo;
+let mongo;
 MongoClient
   .connect(mongoUrl)
-  .then(function(db) {
-    mongo = db;
+  .then(function(client) {
+    mongo = client.db();
+    client.close();
   });
     </code></pre>
   </section>
