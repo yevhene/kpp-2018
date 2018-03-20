@@ -155,7 +155,6 @@ MongoClient
   .connect(mongoUrl)
   .then(function(client) {
     mongo = client.db();
-    client.close();
   });
 ```
 Зверніть увагу на `mongoUrl`:

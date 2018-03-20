@@ -136,8 +136,8 @@ const mongoUrl = process.env.MONGODB_URI || localUrl;
 let mongo;
 MongoClient
   .connect(mongoUrl)
-  .then(function(db) {
-    mongo = db;
+  .then(function(client) {
+    mongo = client.db();
   });
     </code></pre>
   </section>
