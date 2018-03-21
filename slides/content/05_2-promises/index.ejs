@@ -57,7 +57,7 @@ request('http://google.com?q=kittens', function(error, html) {
 
     <pre><code class="javascript" data-trim>
 function userAddress(req, res) {
-  User.findById(req.userId, function(err, user) {
+  User.findById(req.params.userId, function(err, user) {
     Address.findById(user.addressId, function(err, address) {
       var opts = { address: address };
       jade.renderFile('show.jade', opts, function(err, html) {
@@ -74,7 +74,7 @@ function userAddress(req, res) {
 
     <pre><code class="javascript" data-trim>
 function placesNearby(req, res) {
-  User.findById(req.userId, function(err, user) {
+  User.findById(req.params.userId, function(err, user) {
     Address.findById(user.addressId, function(err, address) {
       User.near(address).findAll(function(err, users) {
         Place.near(address).findAll(function(err, places) {
@@ -103,7 +103,7 @@ function placesNearby(req, res) {
 
     <pre><code class="hljs" data-trim>
 function placesNearbyOrError(req, res) {
-  User.findById(req.userId, function(err, user) {
+  User.findById(req.params.userId, function(err, user) {
     if (err) {
       res.send('Error ' + err.toString());
       return;
@@ -517,7 +517,7 @@ Promise.race([
     <pre><code class="hljs" data-trim>
 function userAddress(req, res) {
   User
-    .findById(req.userId)
+    .findById(req.params.userId)
     .then(user =&gt; Address.findById(user.addressId))
     .then(address =&gt; jade.renderFile('show.jade', { address }))
     .then(html =&gt; res.send(html));
@@ -531,7 +531,7 @@ function userAddress(req, res) {
     <pre><code class="hljs" data-trim>
 function placesNearby(req, res) {
   User
-    .findById(req.userId)
+    .findById(req.params.userId)
     .then(user =&gt; Address.findById(user.addressId))
     .then(address =&gt; Promise.all([
       Promise.resolve(address),
@@ -552,7 +552,7 @@ function placesNearby(req, res) {
     <pre><code class="hljs" data-trim>
 function placesNearbyOrError(req, res) {
   User
-    .findById(req.userId)
+    .findById(req.params.userId)
     .then(user =&gt; Address.findById(user.addressId))
     .then(address =&gt; Promise.all([
       Promise.resolve(address),
