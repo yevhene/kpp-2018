@@ -415,5 +415,52 @@ function *placesNearbyOrError(req, res) {
 </section>
 
 <section>
+  <h2>В старих браузерах</h2>
+
+  <section>
+    <h3>Транспіляція (Babel)</h3>
+
+    <pre><code class="hljs" data-trim>
+function *seq() {
+  let n = yield 17;
+  yield 18 + n;
+}
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Транспіляція (Babel)</h3>
+
+    <pre><code class="hljs" data-trim>
+"use strict";
+
+var _marked = [seq].map(regeneratorRuntime.mark);
+
+function seq() {
+  var n;
+  return regeneratorRuntime.wrap(function seq$(_context) {
+    while (1) {
+      switch (_context.prev = _context.next) {
+        case 0:
+          _context.next = 2;
+          return 17;
+
+        case 2:
+          n = _context.sent;
+          _context.next = 5;
+          return 18 + n;
+
+        case 5:
+        case "end":
+          return _context.stop();
+      }
+    }
+  }, _marked[0], this);
+}
+    </code></pre>
+  </section>
+</section>
+
+<section>
   <h2>Питання?</h2>
 </section>

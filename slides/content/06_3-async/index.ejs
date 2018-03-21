@@ -1,0 +1,135 @@
+<section>
+  <h1>Асинхронність</h1>
+  <h2>Лекція 6.3</h2>
+</section>
+
+<section>
+  <h2>Асинхронні функції</h2>
+
+  <section>
+    <h3>Приклад</h3>
+
+    <pre><code class="hljs" data-trim>
+async function userAddress(req, res) {
+  const user = await User.findById(req.userId);
+  const address = await Address.findById(user.addressId);
+
+  const html = await jade.renderFile('address.jade', { address }));
+  res.send(html));
+}
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Використання</h3>
+
+    <pre><code class="hljs" data-trim>
+userAddress(req, res)
+  .then(/*...*/)
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Переваги/Недоліки</h3>
+
+    <ul>
+      <li>+ Всі бонуси генераторів і обіцянок</li>
+      <li>+ Підтримка на рівні мови</li>
+      <li>- Важкі в тестуванні</li>
+    </ul>
+  </section>
+</section>
+
+<section>
+  <h2>koa.js</h2>
+
+  <section>
+    <h3>Простий приклад</h3>
+
+    <pre><code class="hljs" data-trim>
+const Koa = require('koa');
+const app = new Koa();
+
+app.use(async ctx =&gt; {
+  ctx.body = 'Hello World';
+});
+
+app.listen(3000);
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Проміжні обробники (middleware)</h3>
+
+    <pre><code class="hljs" data-trim>
+const Koa = require('koa');
+const app = new Koa();
+
+// logger
+app.use(async (ctx, next) =&gt; {
+  const start = Date.now();
+  await next();
+  const ms = Date.now() - start;
+  console.log(`${ctx.method} ${ctx.url} - ${ms}`);
+});
+
+// response
+app.use(async ctx =&gt; {
+  ctx.body = 'Hello World';
+});
+
+app.listen(3000);
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Бібліотеки</h3>
+
+    <pre><code class="hljs" data-trim>
+const logger = require('koa-logger');
+const router = require('koa-router')();
+const koaBody = require('koa-body');
+
+const Koa = require('koa');
+const app = module.exports = new Koa();
+
+app.use(logger());
+app.use(render);
+app.use(koaBody());
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Маршрутизатор</h3>
+
+    <pre><code class="hljs" data-trim>
+router
+  .get('/posts', list)
+  .get('/posts/:id', show)
+  .post('/posts', create);
+
+app.use(router.routes());
+
+async function list(ctx) {
+  await ctx.render('list', { posts: posts });
+}
+
+async function show(ctx) {
+  const id = ctx.params.id;
+  const post = posts[id];
+  if (!post) ctx.throw(404, 'invalid post id');
+  await ctx.render('show', { post: post });
+}
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Пакети</h3>
+
+    <a href="https://github.com/koajs/koa/wiki">https://github.com/koajs/koa/wiki</a>
+  </section>
+</section>
+
+<section>
+  <h2>Питання?</h2>
+</section>
