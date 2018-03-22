@@ -30,6 +30,52 @@ userAddress(req, res)
   </section>
 
   <section>
+    <h3>Більше прикладів</h3>
+
+    <pre><code class="hljs" data-trim>
+function resolveAfter2Seconds(x) {
+  return new Promise(resolve =&gt; {
+    setTimeout(() =&gt; {
+      resolve(x);
+    }, 2000);
+  });
+}
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Послідовно</h3>
+
+    <pre><code class="hljs" data-trim>
+async function add2(x) {
+  var a = await resolveAfter2Seconds(20);
+  var b = await resolveAfter2Seconds(30);
+  return x + a + b;
+}
+
+add2(10).then(v =&gt; {
+  console.log(v);  // prints 60 after 4 seconds.
+});
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Паралельно</h3>
+
+    <pre><code class="hljs" data-trim>
+async function add1(x) {
+  var a = resolveAfter2Seconds(20);
+  var b = resolveAfter2Seconds(30);
+  return x + await a + await b;
+}
+
+add1(10).then(v =&gt; {
+  console.log(v);  // prints 60 after 2 seconds.
+});
+    </code></pre>
+  </section>
+
+  <section>
     <h3>Переваги/Недоліки</h3>
 
     <ul>
