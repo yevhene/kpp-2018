@@ -16,5 +16,9 @@
 ### async
 - asynchronous iteration/generation
 
-regexp
+### streams
+
+### regexp
+
+### basics
 environment variables

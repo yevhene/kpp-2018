@@ -113,7 +113,7 @@ for (let e of obj) {
 interface Iterable {
   [Symbol.iterator]() : Iterator;
 }
-interface Iterator extends Iterable {
+interface Iterator {
   next() : IteratorResult;
   return?(value? : any) : IteratorResult;
 }
@@ -122,6 +122,8 @@ interface IteratorResult {
   done : boolean;
 }
     </code></pre>
+
+    <p>Iterator зазвичай також реалізує Iterable і повертає себе.</p>
   </section>
 </section>
 

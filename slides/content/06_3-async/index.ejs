@@ -41,6 +41,157 @@ userAddress(req, res)
 </section>
 
 <section>
+  <h2>Асинхронна ітерація<small>ES2018</small></h2>
+
+  <section>
+    <h3>Приклад завантаження</h3>
+
+    <pre><code class="hljs" data-trim>
+async function getResponseSize(url) {
+  const response = await fetch(url);
+  const reader = response.body.getReader();
+  let total = 0;
+
+  while (true) {
+    const {done, value} = await reader.read();
+    if (done) return total;
+    total += value.length;
+  }
+}
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Асинхронний ітератор</h3>
+
+    <pre><code class="hljs" data-trim>
+async function example() {
+  // Regular iterator:
+  const iterator = createNumberIterator();
+  iterator.next(); // Object {value: 1, done: false}
+  iterator.next(); // Object {value: 2, done: false}
+  iterator.next(); // Object {value: 3, done: false}
+  iterator.next(); // Object {value: undefined, done: true}
+
+  // Async iterator:
+  const asyncIterator = createAsyncNumberIterator();
+  const p = asyncIterator.next(); // Promise
+  await p;                    // Object {value: 1, done: false}
+  await asyncIterator.next(); // Object {value: 2, done: false}
+  await asyncIterator.next(); // Object {value: 3, done: false}
+  await asyncIterator.next(); // Object {value: undefined, done: true}
+}
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Асинхронний цикл</h3>
+
+    <pre><code class="hljs" data-trim>
+async function example() {
+  // Regular iterator:
+  for (const item of thing) {
+    // …
+  }
+
+  // Async iterator:
+  for await (const item of asyncThing) {
+    // …
+  }
+}
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Асинхронний цикл</h3>
+
+    <pre><code class="hljs" data-trim>
+async function example() {
+  const arrayOfFetchPromises = [
+    fetch('1.txt'),
+    fetch('2.txt'),
+    fetch('3.txt')
+  ];
+
+  // Regular iterator:
+  for (const item of arrayOfFetchPromises) {
+    console.log(item); // Logs a promise
+  }
+
+  // Async iterator:
+  for await (const item of arrayOfFetchPromises) {
+    console.log(item); // Logs a response
+  }
+}
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Приклад асинхронної ітерації</h3>
+
+    <pre><code class="hljs" data-trim>
+async function getResponseSize(url) {
+  const response = await fetch(url);
+  let total = 0;
+
+  for await (const chunk of response.body) {
+    total += chunk.length;
+  }
+  return total;
+}
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Протокол</h3>
+
+    <pre><code class="hljs" data-trim>
+interface AsyncIterable {
+    [Symbol.asyncIterator]() : AsyncIterator;
+}
+interface AsyncIterator {
+    next() : Promise<IteratorResult>;
+}
+interface IteratorResult {
+    value: any;
+    done: boolean;
+}
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Створення асинхронного ітератора</h3>
+
+    <pre><code class="hljs" data-trim>
+// Note the * after "function"
+async function* asyncRandomNumbers() {
+  // This is a web service that returns a random number
+  const url = 'https://www.random.org/decimal-fractions/?num=1&amp;dec=10&amp;col=1&format=plain&rnd=new';
+
+  while (true) {
+    const response = await fetch(url);
+    const text = await response.text();
+    yield Number(text);
+  }
+}
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Приклад роботи</h3>
+
+    <pre><code class="hljs" data-trim>
+async function example() {
+  for await (const number of asyncRandomNumbers()) {
+    console.log(number);
+    if (number &gt; 0.95) break;
+  }
+}
+    </code></pre>
+  </section>
+</section>
+
+<section>
   <h2>koa.js</h2>
 
   <section>
@@ -109,7 +260,9 @@ router
   .post('/posts', create);
 
 app.use(router.routes());
+    </code></pre>
 
+    <pre><code class="hljs" data-trim>
 async function list(ctx) {
   await ctx.render('list', { posts: posts });
 }
@@ -128,6 +281,13 @@ async function show(ctx) {
 
     <a href="https://github.com/koajs/koa/wiki">https://github.com/koajs/koa/wiki</a>
   </section>
+</section>
+
+<section>
+  <h2>Література</h2>
+
+  <a href="https://jakearchibald.com/2017/async-iterators-and-generators/
+">https://jakearchibald.com/2017/async-iterators-and-generators/</a>
 </section>
 
 <section>
