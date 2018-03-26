@@ -1,0 +1,212 @@
+<section>
+  <h1>Браузерні технології</h1>
+  <h2>Лекція 7.1</h2>
+</section>
+
+<section>
+  <h2>HTML</h2>
+
+  <section>
+    <h3>Структура</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+  &lt;html&gt;
+    &lt;head&gt;
+    &lt;/head&gt;
+
+    &lt;body&gt;
+    &lt;/body&gt;
+  &lt;/html&gt;
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Теги block</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+  &lt;div&gt;Блочний зміст&lt;/div&gt;
+
+  &lt;h1&gt;Заголовок&lt;/h1&gt;
+  &lt;h6&gt;Маленький заголовок&lt;/h6&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;Список 1&lt;/li&gt;
+  &lt;/ul&gt;
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Теги block (в дії)</h3>
+
+    <iframe src="examples/html-block.html"></iframe>
+  </section>
+
+  <section>
+    <h3>Аттрибути</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+  &lt;div id="main"&gt;
+    &lt;div class="content"&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Теги inline</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+  ...текст...&lt;span&gt;Блочний зміст&lt;/span&gt;...текст...
+
+  &lt;b&gt;Виділений текст (але не обов'язково жирний)&lt;/b&gt;
+  &lt;i&gt;По іншому виділений текст (але не обов'язково курсив)&lt;/i&gt;
+  &lt;a href="http://example.com"&gt;Посилання&lt;/a&gt;
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Теги inline (в дії)</h3>
+
+    <iframe src="examples/html-inline.html"></iframe>
+  </section>
+
+  <section>
+    <h3>Теги inline-block</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+  &lt;img src="http://example.com/image.png" alt="Картинка" /&gt;
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Теги inline-block (в дії)</h3>
+
+    <iframe src="examples/html-inline-block.html"></iframe>
+  </section>
+
+  <section>
+    <h3>Форми</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+  &lt;form&gt;
+    &lt;input type="text" /&gt;
+    &lt;input type="checkbox" /&gt;
+    &lt;input type="radio" /&gt;
+    &lt;input type="time" /&gt;
+    &lt;input type="submit" /&gt;
+
+    &lt;select&gt;
+      &lt;option&gt;Вибір 1&lt;/option&gt;
+      &lt;option&gt;Вибір 2&lt;/option&gt;
+    &lt;/select&gt;
+
+    &lt;button&gt;Hello&lt;/button&gt;
+  &lt;/form&gt;
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Форми (в дії)</h3>
+
+    <iframe src="examples/html-forms.html"></iframe>
+  </section>
+
+  <section>
+    <h3>Події</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+  &lt;script&gt;
+    function process(event) {
+      console.log(event);
+    }
+    function changed(element) {
+      console.log(element.value);
+      return false;
+    }
+  &lt;/script&gt;
+  &lt;form onsubmit="process(event)"&gt;
+    &lt;input type="text" onkeydown="return changed(this)" /&gt;
+    &lt;input type="submit" /&gt;
+  &lt;/form&gt;
+  &lt;button onclick="alert('Hello')"&gt;Hello&lt;/button&gt;
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Події (в дії)</h3>
+
+    <iframe src="examples/html-events.html"></iframe>
+  </section>
+
+  <section>
+    <h3>script</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+  &lt;script async defer src="js/script.js"&gt;&lt;/script&gt;
+    </code></pre>
+  </section>
+</section>
+
+<section>
+  <h2>CSS</h2>
+
+  <section>
+    <h3>Правила (Декларації)</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+  &lt;style&gt;
+    span {
+      background-color: red;
+    }
+    h1 {
+      color: #00ff00;
+    }
+  &lt;/style&gt;
+
+  &lt;h1&gt;Hello &lt;span&gt;CSS&lt;/span&gt;!&lt;/h1&gt;
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Правила (в дії)</h3>
+
+    <iframe src="examples/css-rules.html"></iframe>
+  </section>
+
+  <section>
+    <h3>Селектори</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+  &lt;style&gt;
+    #title { color: green; }
+    .text {
+      color: blue;
+      background-color: red;
+    }
+    .description .text { color: white; }
+  &lt;/style&gt;
+  &lt;h1 id="title"&gt;Hi! My name is (what?)&lt;/h1&gt;
+  &lt;h2 class="text"&gt;Hi my name is (who?)&lt;/h2&gt;
+  &lt;div class="description"&gt;
+    &lt;div class="text"&gt;My name is Yevhen Shemet&lt;/div&gt;
+  &lt;/div&gt;
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Селектори (в дії)</h3>
+
+    <iframe src="examples/css-selectors.html"></iframe>
+  </section>
+
+  <section>
+    <h3>link</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+  &lt;link href="css/style.css" rel="stylesheet" /&gt;
+    </code></pre>
+  </section>
+</section>
+
+<section>
+  <h2>Питання?</h2>
+</section>

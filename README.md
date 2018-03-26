@@ -177,6 +177,7 @@
   - HTML, DOM;
   - CSS, селектори;
   - Bootstrap.
+- [Слайди](/slides/07_1-browser)
 
 #### Лекція 7.2 JavaScript HTML5 API
 Геолокація. canvas. history.
