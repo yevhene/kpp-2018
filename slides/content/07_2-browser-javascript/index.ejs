@@ -1,0 +1,149 @@
+<section>
+  <h1>Браузерне оточення</h1>
+  <h2>Лекція 7.2</h2>
+</section>
+
+<section>
+  <h2>Інтеграція з JavaScript</h2>
+
+  <section>
+    <h3>Host елемент</h3>
+
+    <ul>
+      <li><b>window</b> - host об'єкт, містить глобальні змінні і інформацію про вікно;</li>
+      <li><b>window.navigator</b> - доступ до властивостей браузера;</li>
+      <li><b>window.document</b> - доступ до DOM.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Пошук</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+// Один елемент з #student
+document.getElementById('student');
+
+// Набір елементів що відповідають .menu
+document.getElementsByClassName('.menu');
+
+// Один елемент
+document.querySelector('div.user-panel.main input[name=login]');
+
+// Всі елементи
+document.querySelectorAll('div.user-panel.main input[name=login]');
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>DOM</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+document.body.style.backgroundColor = 'red';
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Події</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+  &lt;script&gt;
+    function process(event) {
+      console.log(event);
+    }
+    function changed(element) {
+      console.log(element.value);
+      return false;
+    }
+  &lt;/script&gt;
+  &lt;form onsubmit="process(event)"&gt;
+    &lt;input type="text" onkeydown="return changed(this)" /&gt;
+    &lt;input type="submit" /&gt;
+  &lt;/form&gt;
+  &lt;button onclick="alert('Hello')"&gt;Hello&lt;/button&gt;
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Події (в дії)</h3>
+
+    <iframe src="examples/html-events.html"></iframe>
+  </section>
+
+  <section>
+    <h3>script</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+  &lt;script async defer src="js/script.js"&gt;&lt;/script&gt;
+    </code></pre>
+  </section>
+</section>
+
+<section>
+  <h1>HTML5 API</h1>
+
+  <section>
+    <h3>fetch</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+  fetch('http://someapi.com', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'appliaction/json'
+    },
+    body: JSON.stringify({ name: 'Yevhen' })
+  })
+  .then(function(response) {
+    console.log(response.status);
+    return response.json()
+  })
+  .then(function(data) {
+    console.log(data);
+  });
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>FormData</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+  &lt;form&gt;
+    &lt;input name="name" type="text" /&gt;
+  &lt;/form&gt;
+    </code></pre>
+
+    <pre><code class="hljs" data-trim contenteditable>
+  const formdata = new FormData(document.querySelector('form'));
+  formdata.get('name');
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>History</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+  window.history.back();
+  window.history.forward();
+  window.history.pushState({}, 'MyPage', '/mypage');
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Geolocation</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+  navigator.geolocation.getCurrentPosition(function(p) {
+    newMarker(p.coords.latitude, p.coords.longitude);
+  });
+
+  const watch = navigator.geolocation.watchPosition(function(p) {
+    moveMarker(p.coords.latitude, p.coords.longitude);
+  });
+
+  navigator.geolocation.clearWatch(watch);
+    </code></pre>
+  </section>
+</section>
+
+<section>
+  <h2>Питання?</h2>
+</section>

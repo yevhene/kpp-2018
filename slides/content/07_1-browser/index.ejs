@@ -109,40 +109,105 @@
 
     <iframe src="examples/html-forms.html"></iframe>
   </section>
+</section>
+
+<section>
+  <h2>DOM</h2>
 
   <section>
-    <h3>Події</h3>
+    <h3>HTML</h3>
 
     <pre><code class="hljs" data-trim contenteditable>
-  &lt;script&gt;
-    function process(event) {
-      console.log(event);
-    }
-    function changed(element) {
-      console.log(element.value);
-      return false;
-    }
-  &lt;/script&gt;
-  &lt;form onsubmit="process(event)"&gt;
-    &lt;input type="text" onkeydown="return changed(this)" /&gt;
-    &lt;input type="submit" /&gt;
-  &lt;/form&gt;
-  &lt;button onclick="alert('Hello')"&gt;Hello&lt;/button&gt;
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;О лосях&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  Правда о лосях
+&lt;/body&gt;
+&lt;/html&gt;
     </code></pre>
   </section>
 
   <section>
-    <h3>Події (в дії)</h3>
+    <h3>DOM</h3>
 
-    <iframe src="examples/html-events.html"></iframe>
+    <img src="images/dom.png" />
   </section>
 
   <section>
-    <h3>script</h3>
+    <h3>HTML (без переносів)</h3>
 
     <pre><code class="hljs" data-trim contenteditable>
-  &lt;script async defer src="js/script.js"&gt;&lt;/script&gt;
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;О лосях&lt;/title&gt;&lt;/head&gt;&lt;body&gt;Правда о лосях&lt;/body&gt;&lt;/html&gt;
     </code></pre>
+  </section>
+
+  <section>
+    <h3>DOM (без переносів)</h3>
+
+    <img src="images/dom-no-spaces.png" />
+  </section>
+
+  <section>
+    <h3>Автовиправлення</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+&lt;p&gt;Привет
+&lt;li&gt;Мама
+&lt;li&gt;и
+&lt;li&gt;Папа
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>DOM (автовиправлення)</h3>
+
+    <img src="images/dom-autocorrection.png" />
+  </section>
+
+  <section>
+    <h3>Автододавання</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+&lt;table id="table"&gt;
+  &lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>DOM (автододавання)</h3>
+
+    <img src="images/dom-autowrapping.png" />
+  </section>
+
+  <section>
+    <h3>Коментарі</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+
+&lt;body&gt;
+  Правда о лосях
+  &lt;ol&gt;
+    &lt;li&gt;Лось — животное хитрое&lt;/li&gt;
+    &lt;!-- комментарий --&gt;
+    &lt;li&gt;...и коварное!&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>DOM (коментарі)</h3>
+
+    <img src="images/dom-comments.png" />
   </section>
 </section>
 
@@ -175,6 +240,39 @@
   <section>
     <h3>Селектори</h3>
 
+    <ul>
+      <li><b>table</b> - всі елементи з іменем </i>table</i></li>
+      <li><b>.text</b> - елементи з <i>class="text"</i></li>
+      <li><b>#title</b> - елемент з <i>id="title"</i></li>
+      <li><b>[name="student"]</b> - всі елементи з атрибутом <i>name="student"</i></li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Групування</h3>
+
+    <ul>
+      <li><b>.description .text</b> - всі елементи з <i>class="text"</i> що містяться в елементі з <i>class="description"</i></li>
+      <li><b>ul#list .item</b> - всі елементи з <i>class="item"</i> що містяться в елементі <i>ul</i> з <i>id="list"</i></li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Сепцифічність (Specifity)</h3>
+
+    <p>Селектори сортуються в порядку <i>спеціфічності</i>. Найбільш специфічний буде застосовано останнім.</p>
+
+    <ul>
+      <li>Порівнюється кількість <i>#id</i> у селекторі, чим вона більша, там селектор спеціфічніший. Якщо вона рівна, переходять до наступного правила;</li>
+      <li>Порівнюється кількість <i>.class</i> у селекторі;</li>
+      <li>Порівнюється кількість <i>element</i> у селекторі;</li>
+      <li>Далі в порядку об'яви.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Селектори (приклад)</h3>
+
     <pre><code class="hljs" data-trim contenteditable>
   &lt;style&gt;
     #title { color: green; }
@@ -205,6 +303,14 @@
   &lt;link href="css/style.css" rel="stylesheet" /&gt;
     </code></pre>
   </section>
+</section>
+
+<section>
+  <h2>Посилання</h2>
+
+  <ul>
+    <li><a href="https://learn.javascript.ru/dom-nodes">javascript.ru</a></li>
+  </ul>
 </section>
 
 <section>

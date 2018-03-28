@@ -180,7 +180,10 @@
 - [Слайди](/slides/07_1-browser)
 
 #### Лекція 7.2 JavaScript HTML5 API
-Геолокація. canvas. history.
+- Теми:
+  - Інтеграція JavaScript із браузером;
+  - HTML5 APIs (geolocation, canvas, history).
+- [Слайди](/slides/07_2-browser-javascript)
 
 #### Практика 7: Робота у браузерному оточенні
 
