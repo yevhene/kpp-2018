@@ -13,12 +13,16 @@
 ### promises
 - definition
 
-### async
-- asynchronous iteration/generation
-
 ### streams
 
 ### regexp
 
 ### basics
 environment variables
+
+pseudoselector
+dom manipulation
+
+# API
+JWT
+CORS
