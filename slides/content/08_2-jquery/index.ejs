@@ -4,17 +4,74 @@
 </section>
 
 <section>
-  <h2>TODO</h2>
+  <h2>Browser</h2>
 
   <pre><code class="hljs" data-trim contenteditable>
-  browser/DOM Manipulation
-    innerText
+    browser/DOM Manipulation
+    innerText - legacy. игнорирует script/style
+    textContent
+      https://developer.mozilla.org/ru/docs/Web/API/Node/innerText
     innerHTML
-    fragments
-  jQuery/query
-  jQuery/DOM Manipulation
-  jQuery/animation
-  pseudoselector
+    createElement/createTextNode
+    createDocumentFragment
+    hasChildNodes/childNodes/firstChild/lastChild/nextSibling/previousSibling
+    isEqualNode
+    appendChild/insertBefore/removeChild/replaceChild
+    cloneNode
+
+    document.body.parentNode; // the <html> element
+    document.body.parentElement; // the <html> element
+
+    document.documentElement.parentNode; // the document node
+    document.documentElement.parentElement; // null
+
+    set class/attr/style
+
+    pseudoselector
+    data-attributes
+  </code></pre>
+</section>
+
+<section>
+  <h2>jQuery</h2>
+
+  <pre><code class="hljs" data-trim contenteditable>
+    jQuery/query
+    $(selector)
+    avoid null
+    pseudoselector
+      :not
+      :nth-child
+      :odd
+    extended selectors
+    find
+    first
+    has
+    parent/parents
+
+    jquery/events
+    ready/click/hover
+    on/off
+
+    jQuery/DOM Manipulation
+    before/after
+    append/prepend
+    clone
+    attr
+    css
+    each
+    text/html
+    show/hide
+    is/has/not
+    data
+    replaceWith
+    val
+
+    jQuery/animation
+    fadeIn
+    fadeOut
+    fadeTo
+    fadeToggle
   </code></pre>
 </section>
 
