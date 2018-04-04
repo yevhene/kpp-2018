@@ -20,9 +20,9 @@
 ### basics
 environment variables
 
-pseudoselector
-dom manipulation
-
-# API
+### Auth
 JWT
-CORS
+token
+
+### React Native
+Native Base
