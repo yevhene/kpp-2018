@@ -26,3 +26,10 @@ token
 
 ### React Native
 Native Base
+
+### DOM
+pseudoselectors
+getElementsByTagName
+event bubbling target/currentTarget
+
+### jquery history
