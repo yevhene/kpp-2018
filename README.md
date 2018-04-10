@@ -187,6 +187,7 @@
 - [Слайди](/slides/07_2-html5)
 
 #### Практика 7: Робота у браузерному оточенні
+- [Код](https://github.com/yevhene/kpp-2018/tree/master/examples/07-map)
 
 ### Тиждень 8: AJAX
 
