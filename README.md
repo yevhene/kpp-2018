@@ -164,6 +164,7 @@
   - Хмарні сервіси (Heroku);
   - Системи керування мікросервісами (foreman, pm2).
 - [Слайди](/slides/s_6-deploy)
+- [Код](https://github.com/yevhene/kpp-2018/tree/master/examples/06-cloud)
 
 ## Розділ 3: Browser
 
@@ -211,7 +212,7 @@
 - [Слайди](/slides/08_3-ajax)
 
 #### Практика 8: Розробка клієнт-серверної аплікації
-- [Код](https://github.com/yevhene/kpp-2018/tree/master/examples/09-client-server)
+- [Код](https://github.com/yevhene/kpp-2018/tree/master/examples/08-client-server)
 
 ### Тиждень 9: Взаємодія з сервером
 

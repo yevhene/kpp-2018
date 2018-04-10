@@ -1,15 +1,15 @@
 {
-  "name": "09-client-server",
+  "name": "06-cloud",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index"
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.18.2",
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "mongodb": "^3.0.4"
   }
 }
