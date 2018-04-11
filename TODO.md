@@ -34,3 +34,6 @@ event bubbling target/currentTarget
 
 ### API
 CSRF
+
+File upload
+gravatar
