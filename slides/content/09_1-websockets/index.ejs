@@ -4,12 +4,86 @@
 </section>
 
 <section>
-  <h2>TODO</h2>
+  <h2>Історія</h2>
 
-  Connection
-  Client
-  Server
+  <section>
+    <h3>TODO</h3>
+
+    https://blog.pusher.com/what-came-before-websockets/
+    http://www.infosecisland.com/blogview/12681-The-WebSocket-Protocol-Past-Travails-To-Be-Avoided.html
+    https://pusher.com/websockets
+  </section>
 </section>
+
+<section>
+  <h2>Протокол</h2>
+
+  <section>
+    <pre><code class="hljs" data-trim contenteditable>
+GET /ws HTTP/1.1
+Host: pmx
+Upgrade: websocket
+Connection: Upgrade
+Sec-WebSocket-Version: 6
+Sec-WebSocket-Origin: http://pmx
+Sec-WebSocket-Extensions: deflate-stream
+Sec-WebSocket-Key: x3JJHMbDL1EzLkh9GBhXDw==
+    </code></pre>
+
+    <p>Клієнт надсилає ключ Sec-WebSocket-Key, що є випадковим значенням, закодованим з використанням base64</p>
+  </section>
+
+  <section>
+    <pre><code class="hljs" data-trim contenteditable>
+HTTP/1.1 101 Switching Protocols
+Upgrade: websocket
+Connection: Upgrade
+Sec-WebSocket-Accept: HSmrc0sMlYUkAGmm5OPpG2HaGWk=
+    </code></pre>
+
+    <p>Щоб сформувати відповідь, до закодованого ключа додають рядок GUID 258EAFA5-E914-47DA-95CA-C5AB0DC85B11, а потім (не розкодовуючи ключ) хешують через SHA1 та base64. І на завершення, результуючу відповідь вкладають в заголовок Sec-WebSocket-Accept.</p>
+  </section>
+</section>
+
+<section>
+  <h2>Клієнт</h2>
+
+  <section>
+    <pre><code class="hljs" data-trim contenteditable>
+const webSocket = new WebSocket('ws://localhost/echo');
+
+webSocket.onopen = function(event) {
+  alert('onopen');
+  webSocket.send("Hello Web Socket!");
+};
+
+webSocket.onmessage = function(event) {
+  alert('onmessage, ' + event.data);
+  webSocket.close();
+};
+
+webSocket.onclose = function(event) {
+  alert('onclose');
+};
+    </code></pre>
+  </section>
+</section>
+
+<section>
+  <h2>Сервер</h2>
+
+  https://www.npmjs.com/package/ws
+  https://www.npmjs.com/package/websocket
+</section>
+
+<section>
+  <h2>Посилання</h2>
+
+  <ul>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Websockets_API">MDN WebSockets</a></li>
+  </ul>
+</section>
+
 
 <section>
   <h2>Питання?</h2>
