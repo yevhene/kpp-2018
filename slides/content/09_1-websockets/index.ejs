@@ -1,5 +1,5 @@
 <section>
-  <h1>Websockets</h1>
+  <h1>WebSockets</h1>
   <h2>Лекція 9.1</h2>
 </section>
 
@@ -7,16 +7,42 @@
   <h2>Історія</h2>
 
   <section>
-    <h3>TODO</h3>
+    <h3>Перші кроки</h3>
 
-    https://blog.pusher.com/what-came-before-websockets/
-    http://www.infosecisland.com/blogview/12681-The-WebSocket-Protocol-Past-Travails-To-Be-Avoided.html
-    https://pusher.com/websockets
+    <ul>
+      <li>HTML</li>
+      <li>DHTML</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Фрейми та зовнішні об'єкти</h3>
+
+    <ul>
+      <li>Cross Frame Communication</li>
+      <li>HTTP Polling</li>
+      <li>LiveConnect (Java Applets)</li>
+      <li>Forever Frame (Hidden Frame)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>AJAX</h3>
+
+    <ul>
+      <li>AJAX</li>
+      <li>HTTP Long-Polling</li>
+      <li>XHR Streaming</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>WebSockets</h3>
   </section>
 </section>
 
 <section>
-  <h2>Протокол</h2>
+  <h2>З'єднання</h2>
 
   <section>
     <pre><code class="hljs" data-trim contenteditable>
@@ -49,6 +75,8 @@ Sec-WebSocket-Accept: HSmrc0sMlYUkAGmm5OPpG2HaGWk=
   <h2>Клієнт</h2>
 
   <section>
+    <h3>Приклад</h3>
+
     <pre><code class="hljs" data-trim contenteditable>
 const webSocket = new WebSocket('ws://localhost/echo');
 
@@ -67,13 +95,94 @@ webSocket.onclose = function(event) {
 };
     </code></pre>
   </section>
+
+  <section>
+    <h3>Події</h3>
+
+    <ul>
+      <li>onopen - відкриття;</li>
+      <li>onmessage - повідомлення;</li>
+      <li>onclose - закриття;</li>
+      <li>onerror - помилка.</li>
+    </ul>
+  </section>
 </section>
 
 <section>
   <h2>Сервер</h2>
 
-  https://www.npmjs.com/package/ws
-  https://www.npmjs.com/package/websocket
+  <section>
+    <pre><code class="hljs" data-trim contenteditable>
+npm install --save ws
+    </code></pre>
+
+    <p>Або</p>
+
+    <pre><code class="hljs" data-trim contenteditable>
+npm install --save websocket
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Простий приклад</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+const WebSocket = require('ws');
+
+const wss = new WebSocket.Server({ port: 8080 });
+
+wss.on('connection', function connection(ws) {
+  ws.on('message', function incoming(message) {
+    console.log('received: %s', message);
+  });
+
+  ws.send('something');
+});
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Широкомовлення</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+const WebSocket = require('ws');
+
+const wss = new WebSocket.Server({ port: 8080 });
+
+wss.on('connection', function connection(ws) {
+  ws.on('message', function incoming(data) {
+    wss.clients.forEach(function each(client) {
+      if (client !== ws &amp;&amp; client.readyState === WebSocket.OPEN) {
+        client.send(data);
+      }
+    });
+  });
+});
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Один порт</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+const WebSocket = require('ws');
+const server = require('http').createServer();
+
+// Налаштування аплікації express
+const express = require('express');
+const app = express();
+// ...
+// Монтування аплікації до сервера
+server.on('request', app);
+
+// Приєднання веб-сокет сервера
+const wss = new WebSocket.Server({ server: server });
+
+wss.on('connection', function connection(ws) {
+  // ...
+});
+    </code></pre>
+  </section>
 </section>
 
 <section>
@@ -81,9 +190,9 @@ webSocket.onclose = function(event) {
 
   <ul>
     <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Websockets_API">MDN WebSockets</a></li>
+    <li><a href="https://blog.pusher.com/what-came-before-websockets/">Історія</a></li>
   </ul>
 </section>
-
 
 <section>
   <h2>Питання?</h2>
