@@ -4,10 +4,356 @@
 </section>
 
 <section>
+  <h2>До Fiber</h2>
+
+  <section>
+    <h3>DEMO: Stack</h3>
+
+    <div>
+      <a href="https://github.com/yevhene/kpp-2018/tree/master/demo/react-fiber">react-fiber</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Проблема?</h2>
+    <h3 class="fragment">Один поток</h3>
+  </section>
+
+  <section>
+    <h2>Рішення?</h2>
+    <h3 class="fragment">Кооперативна багатозадачність</h3>
+  </section>
+</section>
+
+
+<section>
+  <h2>React rendering</h2>
+
+  <section>
+    <h3>Vitrual DOM</h3>
+  </section>
+
+  <section>
+    <h3>Узгодження (reconciliation)</h3>
+
+    <small>Алгоритм Stack - Розгортування в глибину, неперервний</small>
+  </section>
+</section>
+
+<section>
+  <h2>Fiber</h2>
+
+  <section>
+    <h3>Новий алгоритм узгодження (reconciliation)</h3>
+  </section>
+
+  <section>
+    <h3>Режим відкладених (deferred) оновлень</h3>
+    <pre><code class="hljs" data-trim>
+tick() {
+  ReactDOM.unstable_deferredUpdates(() =&gt; (
+    this.setState((prevState) =&gt; ({
+      tick: prevState.tick + 1
+    }))
+  ))
+}
+    </code></pre>
+
+    <small>Може бути викликано неодноразово!</small>
+  </section>
+
+  <section>
+    <h3>DEMO: Fiber</h3>
+
+    <div>
+      <a href="https://github.com/yevhene/kpp-2018/tree/master/demo/react-fiber">react-fiber</a>
+    </div>
+
+    <small>*Клікнути на чек-бокс</small>
+  </section>
+
+  <section>
+    <h3>Порівняння</h3>
+
+    <img src="images/perf-not-fiber.png" />
+    <small>Не Fiber</small>
+
+    <img src="images/perf-fiber.png" />
+    <small>Fiber</small>
+  </section>
+
+  <section>
+    <h3>DEMO: Stack vs Fiber</h3>
+
+    <div>
+      <a href="https://claudiopro.github.io/react-fiber-vs-stack-demo">https://claudiopro.github.io/react-fiber-vs-stack-demo</a>
+    </div>
+  </section>
+</section>
+
+<section>
+  <h2>Принцип роботи Fiber</h2>
+
+  <section>
+    <h3>Фази</h3>
+
+    <ol>
+      <li><b>Фаза узгодження (reconciliation/render)</b> - може бути перервана, скасована та повторена</li>
+      <li><b>Фаза внеску (commit)</b> - неперервна</li>
+    </ol>
+  </section>
+
+  <section>
+    <h3>Узгодення (Reconciliation)</h3>
+  </section>
+
+  <section>
+    <h3>Робота розбита на шматочки</h3>
+
+    <pre><code class="hljs" data-trim>
+window.requestIdleCallback(callback[, options])
+    </code></pre>
+
+    <small>*Якщо браузер не підтримує requestIdleCallback, застосовується поліфіл</small>
+  </section>
+
+  <section>
+    <h3>Об'єкт Fiber</h3>
+
+    <pre><code class="hljs" data-trim>
+{
+  stateNode
+  child
+  return
+  sibling
+}
+    </code></pre>
+  </section>
+
+  <section>
+    <img src="images/fiber-0.svg" />
+
+    <small>поточне (current) дерево</small>
+  </section>
+
+  <section>
+    <img src="images/fiber-1.svg" />
+
+    <small>робоче (workInProgress) дерево</small>
+  </section>
+
+  <section>
+    <img src="images/fiber-2.svg" />
+
+    <small>визначення вузлів що мають оновитись</small>
+  </section>
+
+  <section>
+    <img src="images/fiber-3.svg" />
+
+    <small>клонування вузлів DOM</small>
+  </section>
+
+  <section>
+    <h3>Сворення списку ефектів (effects list)</h3>
+
+    <p>
+      <img src="images/fiber-4.svg" />
+    </p>
+
+    <small>Внесок що очікує на застосування (Pending Commit)</small>
+  </section>
+
+  <section>
+    <h3>Внесок (Commit)</h3>
+  </section>
+
+  <section>
+    <img src="images/fiber-5.svg" />
+
+    <small>Подвійна буферизація</small>
+  </section>
+</section>
+
+<section>
+  <h2>Приорітизація</h2>
+
+  <section>
+    <ul>
+      <li>Synchronous (current)</li>
+      <li>Task (before next tick)</li>
+      <li>Animation (before next frame)</li>
+      <li>High</li>
+      <li>Low</li>
+      <li>Offscreen/Hidden</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>DEMO: Starvation</h3>
+
+    <div>
+      <a href="https://github.com/yevhene/kpp-2018/tree/master/demo/react-fiber">react-fiber</a>
+    </div>
+
+    <small>*Підвищити навантаження в коді</small>
+  </section>
+</section>
+
+
+<section>
+  <h2>Інші можливості</h2>
+
+  <section>
+    <h3>Fragment (Array and Strings)</h3>
+
+    <pre><code class="hljs" data-trim>
+const Cars = () =&gt; {
+  return [
+    &lt;Car /&gt;, &lt;Car /&gt;, &lt;Car /&gt;
+  ]
+}
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Error boundaries</h3>
+
+    <pre><code class="hljs" data-trim>
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { hasError: false }
+  }
+
+  componentDidCatch(error, info) {
+    this.setState(() =&gt; { hasError: true })
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return <h1>Something went wrong.</h1>
+    }
+    return this.props.children;
+  }
+}
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Error boundaries 2</h3>
+
+    <pre><code class="hljs" data-trim>
+&lt;ErrorBoundary&gt;
+  &lt;Map /&gt;
+&lt;/ErrorBoundary&gt;
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Portals</h3>
+
+    <pre><code class="hljs" data-trim>
+render() {
+  return ReactDOM.unstable_createPortal(&lt;Modal /&gt;, domElement)
+}
+    </code></pre>
+  </section>
+</section>
+
+<section>
+  <h2>Особливості</h2>
+
+  <section>
+    <h3>Callbacks</h3>
+
+    <ul>
+      <li>
+        <strong>phase 1: render/reconciliation (multi)</strong>
+        <ul>
+          <li>componentWillMount</li>
+          <li>componentWillReceiveProps</li>
+          <li>shouldComponentUpdate</li>
+          <li>componentWillUpdate</li>
+        </ul>
+      </li>
+      <li>
+        <strong>phase 2: commit</strong>
+        <ul>
+          <li>componentDidMount</li>
+          <li>componentDidUpdate</li>
+          <li>componentWillUnmount</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Нові правила</h3>
+
+    <ul>
+      <li>
+        <strong>phase 1: render/reconciliation (multi)</strong>
+        <ul>
+          <li><strike>UNSAFE_componentWillMount</strike></li>
+          <li><strike>UNSAFE_componentWillReceiveProps</strike></li>
+          <li>getDerivedStateFromProps</li>
+          <li>shouldComponentUpdate</li>
+          <li><strike>UNSAFE_componentWillUpdate</strike></li>
+          <li>getSnapshotBeforeUpdate</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Помилки</h3>
+
+    <p><b>З React 16, помилки що не оброблені самостійно будуть приводити до повного розмонтування аплікації.</b></p>
+  </section>
+</section>
+
+<section>
+  <h2>Майбутнє</h2>
+
+  <section>
+    <h3>Використання приорітетів</h3>
+
+    <small>Offscreen/Hidden</small>
+  </section>
+
+  <section>
+    <h3>Один React в разних оточеннях</h3>
+
+    <ul>
+      <li>DOM (React DOM)</li>
+      <li>Mobile (react-native)</li>
+      <li>Console (react-blessed)</li>
+      <li>VR (aframe-react)</li>
+      <li>Arduino (react-hardware)</li>
+      <li>...</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Code splitting</h3>
+
+    <ul>
+      <li>Stream rendering</li>
+      <li>Pre-rendering content without update the DOM</li>
+    </ul>
+  </section>
+</section>
+
+<section>
   <h2>Посилання</h2>
 
   <ul>
     <li><a href="https://dou.ua/lenta/articles/react-fiber/">React 16: огляд нової архітектури fiber</a></li>
+    <li><a href="https://www.youtube.com/watch?v=ZCuYPiUIONs">Відео: Lin Clark - A Cartoon Intro to Fiber - React Conf 2017</a></li>
+    <li><a href="https://www.youtube.com/watch?v=QW5TE4vrklU">Відео: Keynote - Andrew Clark aka @acdlite at @ReactEurope 2017</a></li>
+    <li><a href="https://www.youtube.com/watch?v=U9zFfIww3Go">Відео: A tiny Fiber renderer- Dustan Kasten, React London 2017</a></li>
+    <li><a href="https://www.youtube.com/watch?v=nLF0n9SACd4">Відео: Beyond React 16 by Dan Abramov - JSConf Iceland 2018</a></li>
   </ul>
 </section>
 
