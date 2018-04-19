@@ -205,14 +205,48 @@ window.requestIdleCallback(callback[, options])
   <h2>Інші можливості</h2>
 
   <section>
+    <h3>AsyncMode</h3>
+
+    <pre><code class="hljs" data-trim>
+const AsyncMode = React.unstable_AsyncMode;
+
+&lt;AsyncMode&gt;
+  &lt;App /&gt; // Low Priority by default
+&lt;/AsyncMode&gt;
+    </code></pre>
+
+    <pre><code class="hljs" data-trim>
+ReactDOM.flushSync(() =&gt; {
+  // Sync Priority for use input or an animation etc
+});
+    </code></pre>
+  </section>
+
+  <section>
     <h3>Fragment (Array and Strings)</h3>
 
     <pre><code class="hljs" data-trim>
 const Cars = () =&gt; {
   return [
-    &lt;Car /&gt;, &lt;Car /&gt;, &lt;Car /&gt;
+    &lt;Car /&gt;, &lt;Car /&gt;
   ]
 }
+    </code></pre>
+
+    <pre><code class="hljs" data-trim>
+const Cars = () =&gt;
+  &lt;React.Fragment&gt;
+    &lt;Car /&gt;
+    &lt;Car /&gt;
+  &lt;/React.Fragment&gt;
+    </code></pre>
+
+    <pre><code class="hljs" data-trim>
+const Cars = () =&gt;
+  &lt;&gt;
+    &lt;Car /&gt;
+    &lt;Car /&gt;
+  &lt;/&gt;
     </code></pre>
   </section>
 
@@ -259,6 +293,19 @@ render() {
 }
     </code></pre>
   </section>
+
+  <section>
+    <h3>Один React в разних оточеннях</h3>
+
+    <ul>
+      <li>DOM (React DOM)</li>
+      <li>Mobile (react-native)</li>
+      <li>Console (react-blessed)</li>
+      <li>VR (aframe-react)</li>
+      <li>Arduino (react-hardware)</li>
+      <li>...</li>
+    </ul>
+  </section>
 </section>
 
 <section>
@@ -304,6 +351,20 @@ render() {
         </ul>
       </li>
     </ul>
+
+    <small>Старі методи будуть видалені в React 17</small>
+  </section>
+
+  <section>
+    <h3>StrictMode</h3>
+
+    <ul>
+      <li>Визначає компоненти, що використовують небезпечні методи життєвого циклу;</li>
+      <li>Повідомляє про використання старих ref;</li>
+      <li>Визначає неочікувані побічні ефекти в методах життєвого циклу.</li>
+    </ul>
+
+    <img src="images/strict-mode.png" />
   </section>
 
   <section>
@@ -323,25 +384,32 @@ render() {
   </section>
 
   <section>
-    <h3>Один React в разних оточеннях</h3>
+    <h3>Server-side rendering</h3>
 
     <ul>
-      <li>DOM (React DOM)</li>
-      <li>Mobile (react-native)</li>
-      <li>Console (react-blessed)</li>
-      <li>VR (aframe-react)</li>
-      <li>Arduino (react-hardware)</li>
-      <li>...</li>
+      <li>Stream rendering</li>
+      <li>Pre-rendering content without update the DOM</li>
     </ul>
   </section>
 
   <section>
     <h3>Code splitting</h3>
 
-    <ul>
-      <li>Stream rendering</li>
-      <li>Pre-rendering content without update the DOM</li>
-    </ul>
+    <pre><code class="hljs" data-trim>
+import { createFetcher } from 'React';
+
+// dynamic imports
+const moviePageFetcher = createFetcher(
+  () =&gt; import('./MoviePage')
+);
+
+// get the MoviePage component
+const moviePage = moviePageFetcher.read().default;
+
+...
+    </code></pre>
+
+    <a href="https://github.com/facebook/react/tree/master/packages/simple-cache-provider">react/packages/simple-cache-provider</a>
   </section>
 </section>
 
@@ -349,7 +417,8 @@ render() {
   <h2>Посилання</h2>
 
   <ul>
-    <li><a href="https://dou.ua/lenta/articles/react-fiber/">React 16: огляд нової архітектури fiber</a></li>
+    <li><a href="https://dou.ua/lenta/articles/react-fiber">React 16: огляд нової архітектури fiber</a></li>
+    <li><a href="https://auth0.com/blog/time-slice-suspense-react16">Beyond React 16: Time Slicing and Suspense API</a></li>
     <li><a href="https://www.youtube.com/watch?v=ZCuYPiUIONs">Відео: Lin Clark - A Cartoon Intro to Fiber - React Conf 2017</a></li>
     <li><a href="https://www.youtube.com/watch?v=QW5TE4vrklU">Відео: Keynote - Andrew Clark aka @acdlite at @ReactEurope 2017</a></li>
     <li><a href="https://www.youtube.com/watch?v=U9zFfIww3Go">Відео: A tiny Fiber renderer- Dustan Kasten, React London 2017</a></li>
