@@ -432,10 +432,31 @@ export const localRestore = key =&gt; {
 }
     </code></pre>
   </section>
+</section>
+
+<section>
+  <h2>Побічні ефекти</h2>
 
   <section>
-    <h3>Побічні ефекти</h3>
+    <h3>redux-thunk</h3>
 
+    <pre><code class="hljs" data-trim>
+npm install --save redux-thunk
+    </code></pre>
+
+    <pre><code class="hljs" data-trim>
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import rootReducer from './reducers';
+
+const store = createStore(
+  rootReducer,
+  applyMiddleware(thunk)
+);
+    </code></pre>
+  </section>
+
+  <section>
     <pre><code class="hljs" data-trim>
 const SET_POKEMONS = 'SET_POKEMONS';
 
@@ -490,7 +511,6 @@ export function fetchPokemons() {
     <p>Редюсери чисті функції, тому тестування більшості логіки тривіальне.</p>
   </section>
 </section>
-
 
 <section>
   <h2>Питання?</h2>
