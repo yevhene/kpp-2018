@@ -1,0 +1,64 @@
+[{
+  "id": 1,
+  "name": "Bulbasaur",
+  "location": {
+    "lat": 49.233401,
+    "lng": 28.4647168
+  },
+  "image": "/images/big/Bulbasaur.png",
+  "pin": "/images/pin/Bulbasaur.png"
+}, {
+  "id": 4,
+  "name": "Charmander",
+  "location": {
+    "lat": 49.3239952,
+    "lng": 28.1204862
+  },
+  "image": "/images/big/Charmander.png",
+  "pin": "/images/pin/Charmander.png"
+}, {
+  "id": 7,
+  "name": "Squirtle",
+  "location": {
+    "lat": 49.2507976,
+    "lng": 28.473425
+  },
+  "image": "/images/big/Squirtle.png",
+  "pin": "/images/pin/Squirtle.png"
+}, {
+  "id": 19,
+  "name": "Rattata",
+  "location": {
+    "lat": 49.2433693,
+    "lng": 28.4899638
+  },
+  "image": "/images/big/Rattata.png",
+  "pin": "/images/pin/Rattata.png"
+}, {
+  "id": 21,
+  "name": "Spearow",
+  "location": {
+    "lat": 49.2094768,
+    "lng": 28.4266985
+  },
+  "image": "/images/big/Spearow.png",
+  "pin": "/images/pin/Spearow.png"
+}, {
+  "id": 25,
+  "name": "Pikachu",
+  "location": {
+    "lat": 49.2264587,
+    "lng": 28.4409666
+  },
+  "image": "/images/big/Pikachu.png",
+  "pin": "/images/pin/Pikachu.png"
+}, {
+  "id": 79,
+  "name": "Slowpoke",
+  "location": {
+    "lat": 49.2393557,
+    "lng": 28.5101853
+  },
+  "image": "/images/big/Slowpoke.png",
+  "pin": "/images/pin/Slowpoke.png"
+}]

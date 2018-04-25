@@ -50,7 +50,7 @@ class Car extends Component {
   }
 
   render() {
-    var e = performance.now() + 0.8;
+    var e = performance.now() + config.LAG;
     while (performance.now() < e) {
       // Artificially long execution time.
     }
