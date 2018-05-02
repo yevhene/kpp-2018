@@ -21,6 +21,9 @@
 - [DOM Enlightenment (en.)](http://domenlightenment.com/) - Чернетка книги по DOM;
 - [HTML Canvas Deep Dive (en.)](https://joshondesign.com/p/books/canvasdeepdive/toc.html) - Книга по Canvas.
 
+## Статті
+- [React Tutorial: A Comprehensive Guide to learning React.js in 2018](https://tylermcginnis.com/reactjs-tutorial-a-comprehensive-guide-to-building-apps-with-react/) - Стаття для тих хто вивчає React у 2018 році.
+
 ## Українськомовні джерела
 - [Pro Git (укр.)](https://git-scm.com/book/uk/v2) - Переклад книги створеною спільнотою по системі контролю версій Git.
 
