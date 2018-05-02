@@ -282,6 +282,7 @@ create-react-app.
 - Теми:
   - Контроль якості (eslint);
   - Тестування (jest, enzyme);
+  - Server Side Rendering (next.js);
   - Збірка ресурсів (webpack).
 
 #### Лекція 12.3: -
