@@ -276,7 +276,7 @@ create-react-app.
 - Теми:
   - Роутинг (react-router);
   - Історія браузера.
-- [Слайди](/slides/12_1-routing)
+- [План](/posts/12_1-react-routing.md)
 
 #### Лекція 12.2: Інструменти
 - Теми:
@@ -284,6 +284,7 @@ create-react-app.
   - Тестування (jest, enzyme);
   - Server Side Rendering (next.js);
   - Збірка ресурсів (webpack).
+- [План](/posts/12_2-react-tools.md)
 
 #### Лекція 12.3: -
 
