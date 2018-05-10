@@ -238,7 +238,7 @@
 ## Розділ 4: Single Page Applications (SPA)
 
 ### Лабораторнi
-- [Лабораторна 4: Односторінкова аплікація (SPA)](labs/04-react.md)
+- [Лабораторна 4: Односторінкова аплікація (SPA)](labs/04-spa.md)
 
 ### Тиждень 10: React
 
@@ -295,7 +295,11 @@ create-react-app.
 #### Практика 12: Розробка React аплікації з роутингом
 - [Код](https://github.com/yevhene/kpp-2018/tree/master/examples/12-students)
 
+
 ## Розділ 5: Mobile
+
+### Лабораторнi
+- [Лабораторна 5: Мобільна аплікація](labs/05-mobile.md)
 
 ### Тиждень 13: Cordova
 
@@ -330,6 +334,9 @@ create-react-app.
 
 
 ## Розділ 6: Desktop
+
+### Лабораторнi
+- [Лабораторна 6: Настільна аплікація](labs/06-desktop.md)
 
 ### Тиждень 16: Electron
 
