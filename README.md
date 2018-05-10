@@ -230,6 +230,7 @@
 - [Слайди](/slides/09_2-redis)
 
 #### Практика 9: Розробка серверної аплікації з асинхронною взаємодією
+- [Код](https://github.com/yevhene/kpp-2018/tree/master/examples/09-chat)
 
 #### Лабораторна 3: Розробка браузерної аплікації
 
@@ -292,7 +293,7 @@ create-react-app.
 - [План](/posts/12_3-react-ui.md)
 
 #### Практика 12: Розробка React аплікації з роутингом
-
+- [Код](https://github.com/yevhene/kpp-2018/tree/master/examples/12-students)
 
 ## Розділ 5: Mobile
 
