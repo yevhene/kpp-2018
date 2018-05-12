@@ -8,6 +8,8 @@ class StudentsForm extends Component {
   constructor() {
     super();
 
+    this.handlers = [];
+
     this.state = {
       firstName: '',
       lastName: '',
@@ -27,9 +29,15 @@ class StudentsForm extends Component {
     return !this.props.match.params.id;
   }
 
-  onFieldChange(field, e) {
-    const value = e.target.value;
-    this.setState(() => ({ [field]: value }));
+  onFieldChange = field => {
+    if (!this.handlers[field]) {
+      this.handlers[field] = e => {
+        const value = e.target.value;
+        this.setState(() => ({ [field]: value }));
+      }
+    }
+
+    return this.handlers[field];
   }
 
   onSubmit = (e) => {
@@ -60,7 +68,7 @@ class StudentsForm extends Component {
               id="firstName"
               required
               value={this.state.firstName}
-              onChange={(e) => this.onFieldChange('firstName', e)}
+              onChange={this.onFieldChange('firstName')}
             />
           </FormGroup>
 
@@ -72,7 +80,7 @@ class StudentsForm extends Component {
               id="lastName"
               required
               value={this.state.lastName}
-              onChange={(e) => this.onFieldChange('lastName', e)}
+              onChange={this.onFieldChange('lastName')}
             />
           </FormGroup>
 
@@ -84,7 +92,7 @@ class StudentsForm extends Component {
               id="group"
               required
               value={this.state.group}
-              onChange={(e) => this.onFieldChange('group', e)}
+              onChange={this.onFieldChange('group')}
             />
           </FormGroup>
 
