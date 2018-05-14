@@ -11,20 +11,6 @@
 - Система керування задачами - створення, редагування, видалення, відмітка про виконання задач;
 - Блог - створення посту, коментування, адмінка автора блогу.
 
-## Ресурс
-| Дія               | Метод    | Шлях               | Функція | Шаблон    |
-|------------------ |--------- |------------------- |-------- |---------- |
-| Список            | GET      | /tasks             | index   | index.ejs |
-| Форма створення   | GET      | /tasks/new         | new     | new.ejs   |
-| Створення         | POST     | /tasks             | create  | -         |
-| Перегляд          | GET      | /tasks/:id         | show    | show.ejs  |
-| Форма редагування | GET      | /tasks/:id/edit    | edit    | edit.ejs  |
-| Збереження        | PUT      | /tasks/:id         | update  | -         |
-| Видалення         | DELETE   | /tasks/:id         | destroy | -         |
-| Або:                                                                    |
-| Збереження        | POST     | /tasks/:id/update  | update  | -         |
-| Видалення         | GET/POST | /tasks/:id/destroy | destroy | -         |
-
 ## Express
 
 ### Інсталяція
@@ -219,3 +205,17 @@ mongo
   });
 ```
 Видаляє всі задачі з ім'ям 'Задача1'.
+
+## Ресурс
+| Дія               | Метод    | Шлях               | Функція | Шаблон    |
+|------------------ |--------- |------------------- |-------- |---------- |
+| Список            | GET      | /tasks             | index   | index.ejs |
+| Форма створення   | GET      | /tasks/new         | new     | new.ejs   |
+| Створення         | POST     | /tasks             | create  | -         |
+| Перегляд          | GET      | /tasks/:id         | show    | show.ejs  |
+| Форма редагування | GET      | /tasks/:id/edit    | edit    | edit.ejs  |
+| Збереження        | PUT      | /tasks/:id         | update  | -         |
+| Видалення         | DELETE   | /tasks/:id         | destroy | -         |
+| Або:                                                                    |
+| Збереження        | POST     | /tasks/:id/update  | update  | -         |
+| Видалення         | GET/POST | /tasks/:id/destroy | destroy | -         |

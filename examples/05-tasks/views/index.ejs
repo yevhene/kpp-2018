@@ -1,0 +1,16 @@
+<html>
+  <body>
+    <h1>Tasks</h1>
+
+    <ul id="tasks">
+      <% for (let i = 0, len = tasks.length; i < len; i++) { %>
+        <li><%= tasks[i].name %> <a href="/tasks/<%= i %>/delete">Delete</a></li>
+      <% } %>
+    </ul>
+
+    <form action="/tasks" method="POST">
+      <input type="text" name="name" />
+      <input type="submit" value="New Task" />
+    </form>
+  </body>
+</html>

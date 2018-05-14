@@ -136,7 +136,6 @@
 - [Слайди](/slides/05_3-mongo)
 
 #### Практика 5: Розробка веб аплікації за допомогою express.js
-- [Код](https://github.com/yevhene/kpp-2018/tree/master/examples/05-tasks)
 
 ### Тиждень 6: Production
 
@@ -214,7 +213,7 @@
 - [Слайди](/slides/08_3-ajax)
 
 #### Практика 8: Розробка клієнт-серверної аплікації
-- [Код](https://github.com/yevhene/kpp-2018/tree/master/examples/08-client-server)
+- [Код](https://github.com/yevhene/kpp-2018/tree/master/examples/08-tasks)
 
 ### Тиждень 9: Асинхронна взаємодія з сервером
 
