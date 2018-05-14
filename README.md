@@ -136,6 +136,7 @@
 - [Слайди](/slides/05_3-mongo)
 
 #### Практика 5: Розробка веб аплікації за допомогою express.js
+- [Код](https://github.com/yevhene/kpp-2018/tree/master/examples/05-tasks)
 
 ### Тиждень 6: Production
 
