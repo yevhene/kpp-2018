@@ -1,0 +1,478 @@
+<section>
+  <h1>React Native Navigation</h1>
+  <h2>Лекція 14.2</h2>
+</section>
+
+<section>
+  <h2>Нативна навігація</h2>
+
+  <section>
+    <h3>iOS</h3>
+    <h4>Navigation Stack</h4>
+
+    <img src="images/ios-nav.png" />
+  </section>
+
+  <section>
+    <h3>Android</h3>
+    <h4>Navigation Stack</h4>
+
+    <img src="images/android-nav.png" />
+  </section>
+
+  <section>
+    <h3>iOS</h3>
+    <h4>Tabs</h4>
+
+    <img src="images/ios-tabs.png" />
+  </section>
+
+  <section>
+    <h3>Android</h3>
+    <h4>Swipeable Views (aka Tabs)</h4>
+
+    <img src="images/android-tabs.png" />
+  </section>
+
+  <section>
+    <h3>Android</h3>
+    <h4>Drawer</h4>
+
+    <img src="images/android-drawer.png" />
+  </section>
+
+  <section>
+    <h3>Висновок</h3>
+
+    <h4>Платформи різні</h4>
+  </section>
+</section>
+
+<section>
+  <h2>Минулі рішення</h2>
+
+  <section>
+    <h3>Navigator</h3>
+
+    <p>Основане на JS рішення, що було запущене разом із React Native.</p>
+
+    <ul>
+      <li><b>+</b> Просте</li>
+      <li><b>-</b> Недостатньо потужне</li>
+      <li><b>-</b> Видалене</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>NavigatorIOS</h3>
+
+    <p>Обгортка навколо UINavigationController.</p>
+
+    <ul>
+      <li><b>+</b> Нативне</li>
+      <li><b>-</b> Тільки для iOS</li>
+      <li><b>-</b> Не підтримується</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>NavigationExperimental</h3>
+
+    <p>Спроба зробити все правильно.</p>
+
+    <ul>
+      <li><b>+</b> Є декілька непоганих знахідок</li>
+      <li><b>-</b> Складне</li>
+      <li><b>-</b> Все треба робити самому</li>
+      <li><b>-</b> Застаріле (Deprecated)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>ExNavigator</h3>
+
+    <p>Розвинуте рішення для навігації, побудоване навколо Navigator.</p>
+
+    <ul>
+      <li><b>+</b> Колись було ок</li>
+      <li><b>-</b> Має значні недоліки в архітектурі</li>
+      <li><b>-</b> Застаріле (Deprecated)</li>
+    </ul>
+
+    <div>
+      <a href="https://github.com/expo/ex-navigator"><i>https://github.com/</i><b>expo/ex-navigator</b></a>
+    </div>
+  </section>
+
+  <section>
+    <h3>Підсумок</h3>
+
+    <img src="images/not-good-enough.jpg" />
+
+    <p>Not good enough</p>
+  </section>
+</section>
+
+<section>
+  <h2>Web-орієнтовані рішення</h2>
+</section>
+
+<section>
+  <h2>react-router</h2>
+
+  <section>
+    <div>
+      <img src="images/react-router-logo.png" />
+    </div>
+
+    <div>
+      <a href="https://github.com/ReactTraining/react-router/tree/master/packages/react-router-native"><i>https://github.com/</i><b>ReactTraining/react-router</b></a>
+    </div>
+  </section>
+
+  <section>
+    <div>
+      <img src="images/react-router-demo.gif" class="mobile-gif" />
+    </div>
+  </section>
+
+  <section>
+    <h3>Код</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+&lt;NativeRouter&gt;
+  &lt;Switch&gt;
+    &lt;Route exact path="/" component={StudentsIndex} /&gt;
+    &lt;Route path="/students/:id" component={StudentsShow}/&gt;
+  &lt;/Switch&gt;
+&lt;/NativeRouter&gt;
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>react-router-native</h3>
+
+    <h4>DeepLinking</h4>
+  </section>
+
+  <section>
+    <h3>Експериментальні рішення</h3>
+
+    <ul>
+      <li>StackRoute</li>
+      <li>TabRoutes</li>
+    </ul>
+  </section>
+
+  <section>
+    <ul>
+      <li><b>+</b> Легко мігрувати з веб Web</li>
+      <li><b>+</b> Динаміна маршрутизація</li>
+      <li><b>-</b> Немає елементів керування</li>
+      <li><b>-</b> Немає анімації (поки)</li>
+      <li><b>-</b> Немає стеків/табів (поки)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Підсумок</h3>
+
+    <img src="images/deadline.jpg" />
+
+    <h4>Непогано для швидкої маграції з Web але UX незадовільний</h4>
+  </section>
+</section>
+
+<section>
+  <h2>Нативні рішення</h2>
+</section>
+
+<section>
+  <h2>react-native-navigation</h2>
+
+  <section>
+    <div>
+      <img src="images/react-native-navigation-logo.png" />
+    </div>
+
+    <p>Готовий для використання фреймворк. Підтримується компанією wix.</p>
+
+    <div>
+      <a href="https://wix.github.io/react-native-navigation"><i>https://</i><b>wix.github.io/react-native-navigation</b></a>
+    </div>
+  </section>
+
+  <section>
+    <h3>Інсталяція</h3>
+
+    <ul>
+      <li><a href="https://wix.github.io/react-native-navigation/#/installation-ios"><i>https://wix.github.io/.../</i><b>installation-ios</b></a></li>
+      <li><a href="https://wix.github.io/react-native-navigation/#/installation-android"><i>https://wix.github.io/.../</i><b>installation-android</b></a></li>
+    </ul>
+
+    <p class="fragment fade-in">Не проста.</p>
+  </section>
+
+  <section>
+    <img src="images/react-native-navigation-ios-demo.gif" class="mobile-gif" />
+    <img src="images/react-native-navigation-android-demo.gif" class="mobile-gif" />
+  </section>
+
+  <section>
+    <h3>Запуск</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+Navigation.startTabBasedApp({
+  tabs: [{
+    label: 'Студенти',
+    screen: 'StudentsIndex',
+    icon: this.icons.peopleOutline,
+    selectedIcon: this.icons.people,
+    title: 'Студенти'
+  }, {
+    label: 'Курси',
+    screen: 'CoursesIndex',
+    icon: this.icons.labelOutline,
+    selectedIcon: this.icons.label,
+    title: 'Курси'
+  }]
+})
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Реєстрація</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+Navigation.registerComponent('StudentsIndex', () =&gt; StudentsIndex)
+    </code></pre>
+  </section>
+
+  <section>
+    <img src="images/react-native-navigation-ios-demo-vendor.gif" class="mobile-gif" />
+    <img src="images/react-native-navigation-android-demo-vendor.gif" class="mobile-gif" />
+  </section>
+</section>
+
+<section>
+  <h2>native-navigation</h2>
+
+  <section>
+    <p>Молодий та сирий але швидко розвивається. Підтримується компанією airbnb.</p>
+
+    <div>
+      <a href="http://airbnb.io/native-navigation/"><i>http://</i><b>airbnb.io/native-navigation</b></a>
+    </div>
+  </section>
+</section>
+
+<section>
+  <h2>Нативні рішення</h2>
+
+  <section>
+    <ul>
+      <li><b>+</b> Швидкі</li>
+      <li><b>+</b> Нативний UI/UX</li>
+      <li><b>-</b> Важко інтегрувати</li>
+      <li><b>-</b> Важче підтримувати</li>
+      <li><b>-</b> Не сумісний з create-react-native-app та expo</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Підсумок</h3>
+
+    <h4>Краще інтегровані та з ними важче працювати.</h4>
+  </section>
+</section>
+
+<section>
+  <h2>Краще рішення</h2>
+</section>
+
+<section>
+  <h2>react-navigation</h2>
+
+  <section>
+    <div>
+      <img src="images/react-navigation-logo.svg" />
+    </div>
+
+    <div>
+      <a href="https://reactnavigation.org/"><i>https://</i><b>reactnavigation.org</b></a>
+    </div>
+  </section>
+</section>
+
+<section>
+  <h2>StackNavigator</h2>
+
+  <section>
+    <div>
+      <img src="images/react-navigation-stack-demo.gif" class="mobile-gif" />
+    </div>
+  </section>
+
+  <section>
+    <h3>Код</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+const Courses = StackNavigator({
+  CoursesIndex: {
+    screen: CoursesIndex,
+    navigationOptions: {
+      title: 'Курси'
+    }
+  }
+})
+
+const Students = StackNavigator({
+  StudentsIndex: { screen: StudentsIndex },
+  StudentsShow: { screen: StudentsShow }
+})
+    </code></pre>
+  </section>
+</section>
+
+<section>
+  <h2>TabsNavigator</h2>
+
+  <section>
+    <div>
+      <img src="images/react-navigation-tabs-demo.gif" class="mobile-gif" />
+    </div>
+  </section>
+
+  <section>
+    <h3>Код</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+const Tabs = TabNavigator({
+  Students: {
+    screen: Students,
+    navigationOptions: {
+      title: 'Студенти',
+      tabBarIcon: ({ tintColor, focused }) =&gt; (
+        &lt;Icon
+          name={focused ? 'people' : 'people-outline'}
+          color={tintColor}
+        /&gt;
+      )
+    }
+  },
+  Courses: {
+    ...
+  }
+})
+    </code></pre>
+  </section>
+</section>
+
+<section>
+  <h2>DrawerNavigator</h2>
+
+  <section>
+    <img src="images/react-navigation-drawer-demo.gif" class="mobile-gif" />
+  </section>
+
+  <section>
+    <h3>Код</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+const Tabs = DrawerNavigator({
+  Students: {
+    screen: Students,
+    navigationOptions: {
+      title: 'Студенти',
+      drawerIcon: ({ tintColor, focused }) =&gt; (
+        &lt;Icon
+          name={focused ? 'people' : 'people-outline'}
+          color={tintColor}
+        /&gt;
+      )
+    }
+  },
+  Courses: {
+    ...
+  }
+})
+    </code></pre>
+  </section>
+</section>
+
+<section>
+  <h2>SwitchNavigator</h2>
+
+  <section>
+    <div>
+      <img src="images/react-navigation-switch-demo.gif" class="mobile-gif" />
+    </div>
+  </section>
+
+  <section>
+    <h3>Код</h3>
+
+    <pre><code class="hljs" data-trim contenteditable>
+const Main = SwitchNavigator({
+  Login: { screen: SessionsCreate },
+  Tabs: { screen: Tabs }
+}, {
+  initialRouteName: 'Tabs'
+})
+    </code></pre>
+  </section>
+</section>
+
+<section>
+  <h2>react-navigation</h2>
+
+  <section>
+    <ul>
+      <li><b>+</b> Легко інтегрувати та використовувати</li>
+      <li><b>+</b> Нативні по відчуттям</li>
+      <li><b>+</b> Офіційно підтримуються</li>
+      <li><b>-</b> Швидкість</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Підсумок</h3>
+
+    <img src="images/spanch.jpg" />
+  </section>
+</section>
+
+<section>
+  <h2>Вторинні рішення</h2>
+
+  <section>
+    <h3>react-native-router-flux</h3>
+
+    <p>Був обгорткою над ExNavigator, потім ExperimentalNavigation і зараз над React Navigation. Підтримував Flux, Redux і тепер MobX.</p>
+
+    <div>
+      <a href="https://github.com/aksonov/react-native-router-flux"><i>https://github.com/</i><b>aksonov/react-native-router-flux</b></a>
+    </div>
+  </section>
+
+  <section>
+    <h3>react-native-router-flux</h3>
+
+    <ul>
+      <li><b>+</b> Тонке управління станом</li>
+      <li><b>-</b> Додаткова складність</li>
+      <li><b>-</b> Змінює API періодично</li>
+    </ul>
+  </section>
+</section>
+
+<section>
+  <h3>Підсумок</h3>
+
+  <h4>"In the land of JavaScript, no one is king for long."</h4>
+  <h5>Cory House</h5>
+</section>
+
+<section>
+  <h2>Питання?</h2>
+</section>

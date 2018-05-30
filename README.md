@@ -317,8 +317,15 @@ create-react-app.
 ### Тиждень 14: React Native
 
 #### Лекція 14.1: React Native
+- Теми:
+  - React Native
+  - Expo
+- [Слайди](/slides/14_1-react-native)
 
 #### Лекція 14.2: React Native Navigation
+- Теми:
+  - React Native Navigation
+- [Слайди](/slides/14_2-react-native-navigation)
 
 #### Лекція 14.3: -
 
