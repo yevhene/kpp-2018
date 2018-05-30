@@ -1,0 +1,225 @@
+<section>
+  <h1>React Native</h1>
+  <h2>Лекція 14.1</h2>
+</section>
+
+<section>
+  <h2>React Native</h2>
+
+  <section>
+    <p><b>React Native</b> - інструмент що дозволяє розробляти мобільні аплікації за допомогою JavaScript, використовуючи підхад декларативних компонентів React.</p>
+  </section>
+
+  <section>
+    <h3>Інсталяція</h3>
+
+    <pre><code class="javascript" data-trim>
+$ npm install -g react-native
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Платформи</h3>
+
+    <ul>
+      <li>browser</li>
+      <li>android</li>
+      <li>ios</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Хто використовує</h3>
+
+    <ul>
+      <li>Facebook</li>
+      <li>Instagram</li>
+      <li>Skype</li>
+      <li>Pinterest</li>
+    </ul>
+  </section>
+</section>
+
+<section>
+  <h2>create-react-native-app</h2>
+
+  <section>
+    <h3>Інсталяція</h3>
+
+    <pre><code class="javascript" data-trim>
+$ npm install -g create-react-native-app
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Створення проекта</h3>
+
+    <pre><code class="javascript" data-trim>
+$ create-react-native-app mobileapp
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Проект</h3>
+
+    <pre><code class="javascript" data-trim>
+.
+├── App.js
+├── app.json
+├── App.test.js
+├── package.json
+├── package-lock.json
+└── README.md
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>App.js</h3>
+
+    <pre><code class="javascript" data-trim>
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+
+export default class App extends React.Component {
+  render() {
+    return (
+      &lt;View style={styles.container}&gt;
+        &lt;Text&gt;Open up App.js to start working on your app!&lt;/Text&gt;
+        &lt;Text&gt;Changes you make will automatically reload.&lt;/Text&gt;
+        &lt;Text&gt;Shake your phone to open the developer menu.&lt;/Text&gt;
+      &lt;/View&gt;
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>App.js (продовження)</h3>
+
+    <pre><code class="javascript" data-trim>
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Конфігурація</h3>
+
+    <pre><code class="javascript" data-trim>
+$ sudo sysctl -w fs.inotify.max_user_instances=1024
+$ sudo sysctl -w fs.inotify.max_user_watches=12288
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Запуск</h3>
+
+    <pre><code class="javascript" data-trim>
+$ npm start
+    </code></pre>
+  </section>
+
+  <section>
+    <h3>Expo</h3>
+
+    <pre><code class="javascript" data-trim>
+TODO
+    </code></pre>
+  </section>
+</section>
+
+<section>
+  <h2>Компоненти</h2>
+
+  <section>
+    <h3>Базові</h3>
+
+    <ul>
+      <li>View</li>
+      <li>Text</li>
+      <li>Image</li>
+      <li>TextInput</li>
+      <li>ScrollView</li>
+      <li>StyleSheet</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Інтерфейсні</h3>
+
+    <ul>
+      <li>Button</li>
+      <li>Picker</li>
+      <li>Slider</li>
+      <li>Switch</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Списки</h3>
+
+    <ul>
+      <li>FlatList</li>
+      <li>SectionedList</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Нативні</h3>
+
+    <ul>
+      <li>iOS</li>
+      <li>Android</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Інші</h3>
+
+    <ul>
+      <li>ActivityIndicator</li>
+      <li>Alert</li>
+      <li>Animated</li>
+      <li>CameraRoll</li>
+      <li>Clipboard</li>
+      <li>Dimensions</li>
+      <li>KeyboardAvoidingView</li>
+    </ul>
+    <ul>
+      <li>Linking</li>
+      <li>Modal</li>
+      <li>PixelRatio</li>
+      <li>RefreshControl</li>
+      <li>StatusBar</li>
+      <li>WebView</li>
+      <li></li>
+    </ul>
+  </section>
+</section>
+
+<section>
+  Layout
+  Expo
+  native code / eject
+  UI Frameworks
+</section>
+
+<section>
+  <h2>Питання?</h2>
+</section>
