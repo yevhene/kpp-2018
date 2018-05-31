@@ -248,13 +248,13 @@
   - React
   - JSX
 - [Слайди](/slides/10_1-react)
-- [Демо](https://github.com/yevhene/kpp-2018/tree/master/demo/react-hello-world)
+- [Демо (код)](https://github.com/yevhene/kpp-2018/tree/master/demo/react-hello-world)
 
 #### Лекція 10.2: Архітектура Fiber
 - Теми:
   - Fiber
 - [Слайди](/slides/10_2-fiber)
-- [Демо](https://github.com/yevhene/kpp-2018/tree/master/demo/react-fiber)
+- [Демо (код)](https://github.com/yevhene/kpp-2018/tree/master/demo/react-fiber)
 
 #### Лекція 10.3: -
 
@@ -269,7 +269,7 @@ create-react-app.
   - Redux;
   - Побічні ефекти (Redux Thunk).
 - [Слайди](/slides/11_1-redux)
-- [Демо](https://github.com/yevhene/kpp-2018/tree/master/demo/redux)
+- [Демо (код)](https://github.com/yevhene/kpp-2018/tree/master/demo/redux)
 
 #### Лекція 11.2: -
 
@@ -313,8 +313,6 @@ create-react-app.
   - Apache Cordova
 - [Слайди](/slides/13_1-cordova)
 
-#### Лекція 13.2: -
-
 #### Практика 13: Розробка аплікації за допомогою Apache Cordova
 
 ### Тиждень 14: React Native
@@ -324,15 +322,14 @@ create-react-app.
   - React Native
   - Expo
 - [Слайди](/slides/14_1-react-native)
-- [Демо](https://github.com/yevhene/kpp-2018/tree/master/demo/react-native-hello-world)
+- [Демо (код)](https://github.com/yevhene/kpp-2018/tree/master/demo/react-native-hello-world)
 
 #### Лекція 14.2: React Native Navigation
 - Теми:
   - React Native Navigation
 - [Слайди](/slides/14_2-react-native-navigation)
-- [Демо](https://github.com/yevhene/kpp-2018/tree/master/demo/react-native-navigation)
-
-#### Лекція 14.3: -
+- [Демо](https://expo.io/@yevhene/reactnavigationnavigation)
+- [Демо (код)](https://github.com/yevhene/kpp-2018/tree/master/demo/react-native-navigation)
 
 #### Практика 14: Розробка аплікації за допомогою React Native
 
